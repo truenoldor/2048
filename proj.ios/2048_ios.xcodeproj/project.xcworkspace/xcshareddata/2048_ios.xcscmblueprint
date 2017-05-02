@@ -1,0 +1,48 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1316c22d-e87f-b044-9b9b-93d7a3e3ba9c++505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "1316c22d-e87f-b044-9b9b-93d7a3e3ba9c++505" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "080859DCFFBED59897A93F8140873F7889C62DCD" : 9223372036854775807,
+    "35684816D2651E1FC39BA9EC9912ADF64AE9348D" : 9223372036854775807,
+    "80C213D4032455A3E384599B772FBEDD38C9359E" : 9223372036854775807,
+    "1316c22d-e87f-b044-9b9b-93d7a3e3ba9c++505" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7C000E25-2CD8-4DA4-9CAC-E5E1B4C74637",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "080859DCFFBED59897A93F8140873F7889C62DCD" : "oxygine\/oxygine-framework\/",
+    "35684816D2651E1FC39BA9EC9912ADF64AE9348D" : "oxygine\/oxygine-movie\/",
+    "80C213D4032455A3E384599B772FBEDD38C9359E" : "oxygine\/oxygine-sound\/",
+    "1316c22d-e87f-b044-9b9b-93d7a3e3ba9c++505" : "crazymals\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "2048_ios",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "proj.ios\/2048_ios.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/oxygine\/oxygine-framework",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "080859DCFFBED59897A93F8140873F7889C62DCD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/mysvn.ru\/busalaev\/2048",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1316c22d-e87f-b044-9b9b-93d7a3e3ba9c++505"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/oxygine\/oxygine-movie",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "35684816D2651E1FC39BA9EC9912ADF64AE9348D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/oxygine\/oxygine-sound",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "80C213D4032455A3E384599B772FBEDD38C9359E"
+    }
+  ]
+}

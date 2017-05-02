@@ -1,0 +1,92 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+		
+	}
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.+'
+
+            }
+}
+
+apply plugin: 'com.android.application'
+
+
+
+dependencies {
+    compile(project(':oxygine-extension'))
+    compile(project(':oxygine-lib')) { exclude module: 'oxygine-extension' }
+    compile project(':oxygine-billing')
+    compile project(':oxygine-admob')
+    compile 'com.google.android.gms:play-services-games:9.8.0'
+    compile 'com.google.android.gms:play-services-plus:9.8.0'
+    compile 'com.google.firebase:firebase-ads:9.8.0' 
+    compile fileTree(dir: 'libs_vendors', include: ['*.jar'])    
+}
+
+
+task build_ndk(type: Exec) {
+    commandLine 'cmd', '/c', 'build.bat'
+    standardOutput = new ByteArrayOutputStream()
+
+    ext.output = {
+        return standardOutput.toString()
+    }
+
+}     
+
+
+
+android {
+    enforceUniquePackageName=false
+        
+    compileSdkVersion 16
+    buildToolsVersion '23.0.3'
+
+
+ tasks.withType(JavaCompile) {
+                compileTask -> compileTask.dependsOn build_ndk
+        }
+
+ defaultConfig {
+        applicationId "org.oxygine.2048"        
+    }
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['../data']
+        }
+    }
+
+    aaptOptions {
+        noCompress 'zip', 'ogg', 'pak'
+        ignoreAssetsPattern "!*.dll:*.icf"
+    }
+lintOptions {
+      abortOnError false
+  }
+
+
+signingConfigs {
+
+   release {
+       storeFile file(RELEASE_STORE_FILE)
+       storePassword RELEASE_STORE_PASSWORD
+       keyAlias RELEASE_KEY_ALIAS
+       keyPassword RELEASE_KEY_PASSWORD
+   }
+}
+
+buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+}
+}

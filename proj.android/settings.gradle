@@ -1,0 +1,11 @@
+include 'oxygine-lib'
+project(':oxygine-lib').projectDir = new File('../../oxygine//oxygine-framework/oxygine/SDL/android/lib')
+
+include 'oxygine-extension'
+project(':oxygine-extension').projectDir = new File('../../oxygine//oxygine-framework/oxygine/SDL/android/extension')
+
+include 'oxygine-billing'
+project(':oxygine-billing').projectDir = new File('../../oxygine/oxygine-billing/android/billing')
+
+include 'oxygine-admob'
+project(':oxygine-admob').projectDir = new File('../../oxygine/oxygine-admob/android')

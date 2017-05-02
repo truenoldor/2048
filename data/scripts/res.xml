@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<resources>
+	    
+
+	<set path="fonts"/>
+	<font file="bip-1.fnt" />		
+	<font file="bip-2.fnt" />		
+	<font file="bip-3.fnt" />		
+	<font file="bip-4.fnt" />		
+	
+	<set scale_factor="1.0"/>
+	
+	<atlas format="8888"> 
+		
+				
+		<set path="images/gui" />
+		<image file="black_template.png" />		
+		
+	</atlas>
+	
+	
+</resources>

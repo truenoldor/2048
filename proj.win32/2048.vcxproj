@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2B4D7491-A4F8-4606-B0E3-2A1FCE3C46C4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>2048</RootNamespace>
+    <ProjectName>2048</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization Condition="'$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '14.0'">true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)_$(PlatformToolset)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)_$(PlatformToolset)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)_$(PlatformToolset)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)_$(PlatformToolset)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>2048_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>2048</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../oxygine/oxygine-framework//oxygine/src;../../oxygine//SDL/include;../../oxygine/oxygine-framework//oxygine/third_party/win32/zlib/;../../oxygine/oxygine-framework//oxygine/third_party/win32/pthreads/include;../../oxygine/oxygine-movie/src;../../oxygine/oxygine-sound/src;../../aemovie/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>tremor.lib;libogg_static_vs2013.lib;openAL32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../oxygine/oxygine-framework//oxygine/third_party/win32/libraries;../../oxygine/oxygine-framework//libs;../../oxygine/oxygine-movie//libs;../../oxygine/oxygine-sound/libs/win32;../data;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../oxygine/oxygine-framework//oxygine/src;../../oxygine//SDL/include;../../oxygine/oxygine-framework//oxygine/third_party/win32/zlib/;../../oxygine/oxygine-framework//oxygine/third_party/win32/pthreads/include;../../oxygine/oxygine-movie/src;../../oxygine/oxygine-sound/src;../../aemovie/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../../oxygine/oxygine-framework//oxygine/third_party/win32/libraries;../../oxygine/oxygine-framework//libs;../../oxygine/oxygine-movie//libs;../../oxygine/oxygine-sound/libs/win32;../data;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tremor.lib;libogg_static_vs2013.lib;openAL32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../oxygine/oxygine-framework/\oxygine\SDL\win32\oxygine.vcxproj">
+      <Project>{52411305-cfe1-4fa8-9885-5729bfc816cf}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\oxygine\oxygine-movie\proj.win32\oxygine-movie.vcxproj">
+      <Project>{83882b80-5aa5-4c9a-912d-643804e29c38}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\oxygine\oxygine-sound\proj.win32\oxygine-sound.vcxproj">
+      <Project>{7fd3eb10-bd3e-459a-82d2-7de937e4f3f8}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="../src/example.h" />
+    <ClInclude Include="..\src\achievements.h" />
+    <ClInclude Include="..\src\analytics.h" />
+    <ClInclude Include="..\src\bezier.h" />
+    <ClInclude Include="..\src\blocking.h" />
+    <ClInclude Include="..\src\ConLIST.H" />
+    <ClInclude Include="..\src\coroutines.h" />
+    <ClInclude Include="..\src\definitions.h" />
+    <ClInclude Include="..\src\GameScreen.h" />
+    <ClInclude Include="..\src\Helper.h" />
+    <ClInclude Include="..\src\ios_wrapper.h" />
+    <ClInclude Include="..\src\Localization.h" />
+    <ClInclude Include="..\src\LogoScreen.h" />
+    <ClInclude Include="..\src\MainScreen.h" />
+    <ClInclude Include="..\src\Player.h" />
+    <ClInclude Include="..\src\tinyxml_p\bind_dynamics.h" />
+    <ClInclude Include="..\src\tinyxml_p\tinybind.h" />
+    <ClInclude Include="..\src\tinyxml_p\tinystr.h" />
+    <ClInclude Include="..\src\tinyxml_p\tinyxml.h" />
+    <ClInclude Include="..\src\TriangulationCl.h" />
+    <ClInclude Include="..\src\ui\Button2.h" />
+    <ClInclude Include="..\src\ui\Modal.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\achievements.cpp" />
+    <ClCompile Include="..\src\analytics.cpp" />
+    <ClCompile Include="..\src\bezier.cpp" />
+    <ClCompile Include="..\src\blocking.cpp" />
+    <ClCompile Include="..\src\coroutines.cpp" />
+    <ClCompile Include="..\src\definitions.cpp" />
+    <ClCompile Include="..\src\entry_point.cpp" />
+    <ClCompile Include="..\src\GameScreen.cpp" />
+    <ClCompile Include="..\src\Helper.cpp" />
+    <ClCompile Include="..\src\ios_wrapper.cpp" />
+    <ClCompile Include="..\src\Localization.cpp" />
+    <ClCompile Include="..\src\LogoScreen.cpp" />
+    <ClCompile Include="..\src\MainScreen.cpp" />
+    <ClCompile Include="..\src\Player.cpp" />
+    <ClCompile Include="..\src\tinyxml_p\bind_dynamics.cpp" />
+    <ClCompile Include="..\src\tinyxml_p\tinybind.cpp" />
+    <ClCompile Include="..\src\tinyxml_p\tinystr.cpp" />
+    <ClCompile Include="..\src\tinyxml_p\tinyxml.cpp" />
+    <ClCompile Include="..\src\tinyxml_p\tinyxmlerror.cpp" />
+    <ClCompile Include="..\src\tinyxml_p\tinyxmlparser.cpp" />
+    <ClCompile Include="..\src\ui\Button2.cpp" />
+    <ClCompile Include="..\src\ui\Modal.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

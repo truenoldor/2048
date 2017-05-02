@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<resources>
+	<set scale_factor="1.0"/>
+	
+	<atlas format="8888"> 
+		<set path="images/logo" />
+		<image file="logo.jpg" />					
+	</atlas>
+	
+	
+</resources>
