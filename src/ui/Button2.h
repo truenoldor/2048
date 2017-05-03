@@ -23,7 +23,7 @@ public:
 	void					Press();
 
 	void					setScale(float scaleX, float scaleY);
-    
+
     void                    setDoubleMask();
 
 protected:

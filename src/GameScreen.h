@@ -4,6 +4,7 @@
 #include "ui/Button2.h"
 #include "ui/Modal.h"
 #include "MovieSprite.h"
+#include "Board2048.h"
 
 namespace oxygine
 {
@@ -19,5 +20,16 @@ namespace oxygine
 		virtual void			doLoop()OVERRIDE;
 
         void                    Init();
+
+    private:
+        oxygine::Resources      m_Resources;
+
+        spSprite                m_Back;
+        spButton2               m_MenuBtn;
+        spButton2               m_LBBtn;
+        spSprite                m_ScoresBack;
+        spSprite                m_BestBack;
+
+        spBoard2048             m_Board;
 	};
 };

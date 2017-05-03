@@ -9,9 +9,11 @@ Button2::Button2():
 	m_SaveScale( 1.f, 1.f )
 {
 	_soundTP = "Button"; //test. don`t kill.
-	
+
+    setAnchor(0.5f, 0.5f);
+
 	EventCallback ncb = CLOSURE(this, &Button2::_mouseEvent);
-	addEventListener(TouchEvent::TOUCH_DOWN, ncb);	
+	addEventListener(TouchEvent::TOUCH_DOWN, ncb);
 	//_disabled = false;
 }
 Button2::~Button2()
@@ -68,10 +70,10 @@ void Button2::_mouseEvent(Event *event)
 	Actor *act = safeCast<Actor*>(event->target.get());
 
 	switch(event->type)
-	{		
+	{
 		case TouchEvent::TOUCH_DOWN:
 		{
-			PlaySoundFX( _soundTP.c_str() );			
+			PlaySoundFX( _soundTP.c_str() );
 		}
 		break;
 	}
@@ -98,8 +100,8 @@ void Button2::updateButtonState(state s)
 		s = Button::stateOvered;
 
 		//g_SoundSystem.PlaySound( "sounds/Button.wav" );
-		
-		
+
+
 		//PlaySoundFX( g_SoundResources.get("Button")  );
 		//PlaySoundFX( "Button" );
 

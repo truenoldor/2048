@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Element>
+        <Token>localize_menu_btn</Token>
+        <Text>Menu</Text>
+    </Element>    
+	<Element>
+        <Token>localize_lb_btn</Token>
+        <Text>Records</Text>
+    </Element>    
+	<Element>
+        <Token>localize_scores</Token>
+        <Text>Scores:</Text>
+    </Element>    
+	<Element>
+        <Token>localize_best</Token>
+        <Text>Best:</Text>
+    </Element>    
+	
+</Localization>

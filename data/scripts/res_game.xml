@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<resources>
+	<atlas format="8888"> 
+
+		<set path="images/game" />
+		<image file="back.png" />		
+		<image file="best_back.png" />		
+		<image file="border.png" />		
+		<image file="chip.png" />		
+		<image file="gc_btn.png" />		
+		<image file="menu_btn.png" />		
+		<image file="score_back.png" />		
+		
+	</atlas>
+	
+	
+</resources>

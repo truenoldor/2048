@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\tinyxml_p">
-      <UniqueIdentifier>{157cdf47-55a7-4553-af25-2032e8b996e2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\ui">
       <UniqueIdentifier>{86b40ead-a3ae-4f25-89c6-4353999ab42d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tixml">
+      <UniqueIdentifier>{375da128-679e-4131-82d3-cd4db6e4c263}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,18 +57,6 @@
     <ClInclude Include="..\src\ui\Modal.h">
       <Filter>Source Files\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\tinyxml_p\bind_dynamics.h">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\tinyxml_p\tinybind.h">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\tinyxml_p\tinystr.h">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\tinyxml_p\tinyxml.h">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Localization.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -85,6 +73,21 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\achievements.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tinyxml_p\bind_dynamics.h">
+      <Filter>Source Files\tixml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tinyxml_p\tinybind.h">
+      <Filter>Source Files\tixml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tinyxml_p\tinystr.h">
+      <Filter>Source Files\tixml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tinyxml_p\tinyxml.h">
+      <Filter>Source Files\tixml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Board2048.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,24 +122,6 @@
     <ClCompile Include="..\src\ui\Modal.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\tinyxml_p\bind_dynamics.cpp">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\tinyxml_p\tinybind.cpp">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\tinyxml_p\tinystr.cpp">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\tinyxml_p\tinyxml.cpp">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\tinyxml_p\tinyxmlerror.cpp">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\tinyxml_p\tinyxmlparser.cpp">
-      <Filter>Source Files\tinyxml_p</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\ios_wrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -153,6 +138,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\achievements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml_p\bind_dynamics.cpp">
+      <Filter>Source Files\tixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml_p\tinybind.cpp">
+      <Filter>Source Files\tixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml_p\tinystr.cpp">
+      <Filter>Source Files\tixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml_p\tinyxml.cpp">
+      <Filter>Source Files\tixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml_p\tinyxmlerror.cpp">
+      <Filter>Source Files\tixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml_p\tinyxmlparser.cpp">
+      <Filter>Source Files\tixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Board2048.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

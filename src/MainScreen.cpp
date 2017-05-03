@@ -44,7 +44,6 @@ namespace oxygine
 
 		void* MainActor::_staticThreadFuncMusic(void* t)
 		{
-           //return 0;
 			MainActor* This = (MainActor*)t;
 
 			oxygine::SoundSystem::create()->init(16);
@@ -184,7 +183,7 @@ namespace oxygine
 
 				//initialize text style
 				TextStyle style;
-				style.font = g_GameResources.getResFont( "bip-1" );
+				style.font = g_GameResources.getResFont( "bip-2" );
 				style.color = Color::White;
 				style.vAlign = TextStyle::VALIGN_TOP;
 				style.hAlign = TextStyle::HALIGN_LEFT;

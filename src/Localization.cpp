@@ -41,7 +41,7 @@ void CLocalization::Init( const char * szPathFile )
 	m_Texts.clear();
 	m_TextsScale.clear();
 	if ( !szPathFile )
-		return;	
+		return;
 	void * pData = GetVfsFileData( szPathFile );
 	if( !pData )
 		return;
@@ -74,11 +74,11 @@ void CLocalization::Init( const char * szPathFile )
 						m_TextsScale[ crc_help.m_crc32 ] = atof( szTextScale );
 					}
 				}
-			}else 
+			}else
 			if ( szToken && !szText )
 			{
 				crc32_noldor crc_help = g_HelpCRC;
-				crc_help.ProcessCRC( ( void* )szToken, strlen( szToken ) );				
+				crc_help.ProcessCRC( ( void* )szToken, strlen( szToken ) );
 				m_Texts[ crc_help.m_crc32 ] = "";
 				if ( pScale )
 				{
@@ -87,7 +87,7 @@ void CLocalization::Init( const char * szPathFile )
 						m_TextsScale[ crc_help.m_crc32 ] = atof( szTextScale );
 					}
 				}
-			}			
+			}
 		}
 		pEl = pEl->NextSiblingElement( "Element" );
 	}
@@ -96,7 +96,7 @@ void CLocalization::Init( const char * szPathFile )
 unsigned CLocalization::GetHashCRC32( const char * szData, int len )
 {
 	if ( !szData )
-		return 0;	
+		return 0;
 	crc32_noldor crc_help = g_HelpCRC;
 	unsigned hash = crc_help.ProcessCRC( ( void* )szData, len );
 	return hash;
@@ -126,10 +126,10 @@ std::string CLocalization::GetText( const char * szToken, float * pfScale )
 
 		return iter->second;
 	}
-	
+
 	return std::string( szToken );
 
 // 	std::wstring srW = utf8tows( szToken );
-// 	
+//
 // 	return srW;
 }

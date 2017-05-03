@@ -1,1 +1,1 @@
-<resources version="2"><set/><font sf="1" size="50"/><font sf="1" size="64"/><font sf="1" size="90"/><font sf="1" size="128"/><set/><atlas><set/><atlas file="1_0.png" format="r8g8b8a8" h="64" w="64"/><image fs="1,1,64,64,1.000000">0,2,2,0,0,64,64;</image></atlas></resources>
+<resources version="2"><set/><font sf="1" size="64"/><set/><atlas><set/><atlas file="1_0.png" format="r8g8b8a8" h="64" w="64"/><image fs="1,1,64,64,1.000000">0,2,2,0,0,64,64;</image></atlas></resources>

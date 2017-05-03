@@ -124,6 +124,7 @@
     <ClInclude Include="..\src\analytics.h" />
     <ClInclude Include="..\src\bezier.h" />
     <ClInclude Include="..\src\blocking.h" />
+    <ClInclude Include="..\src\Board2048.h" />
     <ClInclude Include="..\src\ConLIST.H" />
     <ClInclude Include="..\src\coroutines.h" />
     <ClInclude Include="..\src\definitions.h" />
@@ -147,6 +148,7 @@
     <ClCompile Include="..\src\analytics.cpp" />
     <ClCompile Include="..\src\bezier.cpp" />
     <ClCompile Include="..\src\blocking.cpp" />
+    <ClCompile Include="..\src\Board2048.cpp" />
     <ClCompile Include="..\src\coroutines.cpp" />
     <ClCompile Include="..\src\definitions.cpp" />
     <ClCompile Include="..\src\entry_point.cpp" />
