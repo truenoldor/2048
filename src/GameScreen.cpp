@@ -71,6 +71,7 @@ namespace oxygine
         spTextField textBestNum = Helper::makeMeTextField("bip-2", 40, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
         textBestNum->setColor(Color(0xffffffff));
         textBestNum->setText("0");
+        textBestNum->setName("num_best");
         Helper::linkTextField(m_BestBack, textBestNum, Vector2(0.f, 28.f));
 
         m_Board = new Board2048;
@@ -101,7 +102,18 @@ namespace oxygine
 				sprintf(out, "%d", m_Board->getScores());
 				pText->setText(out);
 			}
-		}		
+		}
+
+        if (m_BestBack)
+        {
+            spActor t = m_BestBack->getChild("num_best");
+            if (TextField * pText = dynamic_cast<TextField*>(t.get()))
+            {
+                char out[256] = "";
+                sprintf(out, "%d", Player::instance->m_BestPoints);
+                pText->setText(out);
+            }
+        }
     }
 
     void GameScreen::doLoop()

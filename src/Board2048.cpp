@@ -505,14 +505,15 @@ namespace oxygine
 	void Board2048::doUpdate(const UpdateState& us)
 	{
 		Sprite::doUpdate(us);
+
+        if (Player::instance->m_BestPoints < m_Scores)
+        {
+            Player::instance->m_BestPoints = m_Scores;
+            Player::instance->Save();
+        }
+
 		if ( !checkTweens() )
 		{
-// 			if (m_State == ebsMoveProcess)
-// 			{
-//
-// 				m_State = ebsIdle;
-// 			}
-
 			checkLeftTurns();
 
 			for (spTile2048 tile : m_Tiles)
