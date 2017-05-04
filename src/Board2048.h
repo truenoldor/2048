@@ -10,7 +10,16 @@ namespace oxygine
     public:
         Tile2048(const oxygine::Resources & res);
 
-        Point                    m_MatrixPos;
+		void						doUpdate(const UpdateState& us) override;
+
+        Point						m_MatrixPos;
+		int							m_Denomination;
+		int							m_DenominationBuffer;
+		spTextField					m_Score;
+		bool						m_WillKill;
+		bool						m_Lock;
+	private:
+		void						updateColor();
     };
 
     DECLARE_SMART(Board2048, spBoard2048);
@@ -22,14 +31,52 @@ namespace oxygine
 
         void                    Create(const oxygine::Resources & res);
 
+		int						getScores() { return m_Scores; }
+
+	protected:
+		
+		void					doUpdate(const UpdateState& us) override;
+
     private:
 
-        void                    Spawn();
+        spTile2048              Spawn(Point * pDebugPoint = 0, int debugVal = 0);
+		void					RemoveTile(Tile2048 * pTileTrace);
+
         void                    getFreeCells(std::vector< Point > & cells);
+		void					objectSlide(Event * e);		
+		Tile2048 *				getTile(const Point & p);		
+		void					moveTile(Tile2048 * pTile, const Point & p, Tile2048 * pTileTrace = 0);		
+		void					checkLeftTurns();
+		bool					IsEmptyNearCells(spTile2048 tile);
+		bool					IsDenominationNearCells(spTile2048 tile);
+		bool					belongArea(const Point & p);
 
     private:
 
         std::vector< spTile2048 >       m_Tiles;
+		const oxygine::Resources	*	m_Resources;
+		Vector2							m_TouchPoint;
+		int								m_MoveCounter;		
+		int								m_Scores;
+
+		enum EBoardMoveDir
+		{
+			enmdLeft,
+			enmdUp,
+			enmdRight,
+			enmdDown
+		};
+
+		void					move(EBoardMoveDir dir);
+		Tile2048 *				traceTile(const Point & p, EBoardMoveDir dir);
+		bool					checkTweens();
+
+		enum EBoardState
+		{
+			ebsIdle,
+			ebsSlide,
+			ebsMoveProcess			
+		}m_State;
     };
 };
 

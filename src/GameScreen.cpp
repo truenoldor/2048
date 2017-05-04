@@ -56,6 +56,7 @@ namespace oxygine
         spTextField textScoresNum = Helper::makeMeTextField("bip-2", 40, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
         textScoresNum->setColor(Color(0xffffffff));
         textScoresNum->setText("0");
+		textScoresNum->setName("num_text");
         Helper::linkTextField(m_ScoresBack, textScoresNum, Vector2(0.f, 28.f));
 
         m_BestBack = new Sprite;
@@ -91,6 +92,16 @@ namespace oxygine
     void GameScreen::update(const UpdateState& us)
     {
         Modal::update(us);
+		if (m_ScoresBack)
+		{
+			spActor t = m_ScoresBack->getChild("num_text");
+			if ( TextField * pText = dynamic_cast< TextField* >( t.get() ) )
+			{
+				char out[256] = "";
+				sprintf(out, "%d", m_Board->getScores());
+				pText->setText(out);
+			}
+		}		
     }
 
     void GameScreen::doLoop()
