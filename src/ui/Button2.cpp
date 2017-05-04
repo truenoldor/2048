@@ -2,6 +2,8 @@
 #include "res/ResAnim.h"
 #include "../definitions.h"
 #include "../MainScreen.h"
+#include "../Localization.h"
+#include "../Helper.h"
 
 
 Button2::Button2():
@@ -20,6 +22,15 @@ Button2::~Button2()
 {
 	EventCallback ncb = CLOSURE(this, &Button2::_mouseEvent);
 	removeEventListener(TouchEvent::TOUCH_DOWN, ncb);
+}
+
+void Button2::CreateTextButton(const ResAnim * res, const std::string & font, int fontSize, const std::string & text, unsigned long color)
+{
+    setResAnim(res);
+    spTextField textMenu = Helper::makeMeTextField(font, 50, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+    textMenu->setColor(Color(0x000000ff));
+    textMenu->setText(g_Localization.GetText(text.c_str()));
+    Helper::linkTextField(this, textMenu, Vector2(0.f, -6.f));
 }
 
 void Button2::setDoubleMask()

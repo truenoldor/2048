@@ -9,6 +9,10 @@
         <Text>Records</Text>
     </Element>    
 	<Element>
+        <Token>localize_settings_btn</Token>
+        <Text>Settings</Text>
+    </Element>    	
+	<Element>
         <Token>localize_scores</Token>
         <Text>Scores:</Text>
     </Element>    
@@ -16,5 +20,17 @@
         <Token>localize_best</Token>
         <Text>Best:</Text>
     </Element>    
+	
+	<!-- settings -->
+	
+	<Element>
+        <Token>localize_feedback</Token>
+        <Text>feedback</Text>
+    </Element>    	
+	<Element>
+        <Token>localize_rateus</Token>
+        <Text>Rate Us</Text>
+    </Element>    	
+	
 	
 </Localization>

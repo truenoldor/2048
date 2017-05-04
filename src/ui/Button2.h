@@ -26,6 +26,9 @@ public:
 
     void                    setDoubleMask();
 
+    void                    CreateTextButton(const ResAnim * res, const std::string & font, int fontSize, const std::string & text, unsigned long color = 0xffffffff);
+
+
 protected:
 	virtual void			updateButtonState(state s);
 
@@ -44,3 +47,10 @@ private:
 };
 
 DECLARE_SMART(Button2, spButton2);
+
+DECLARE_SMART(CloseWindowButton2, spCloseWindowButton2);
+class CloseWindowButton2 : public Button2
+{
+public:
+    CloseWindowButton2() {};
+};

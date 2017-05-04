@@ -29,6 +29,7 @@ namespace oxygine
 		bool						m_IsViewTutorial;
 
 		bool						m_SoundOn;
+        bool                        m_MusicOn;
         
         int                         m_ShowRate;
         

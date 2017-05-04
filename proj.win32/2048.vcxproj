@@ -135,6 +135,8 @@
     <ClInclude Include="..\src\LogoScreen.h" />
     <ClInclude Include="..\src\MainScreen.h" />
     <ClInclude Include="..\src\Player.h" />
+    <ClInclude Include="..\src\Popup.h" />
+    <ClInclude Include="..\src\SettingWindow.h" />
     <ClInclude Include="..\src\tinyxml_p\bind_dynamics.h" />
     <ClInclude Include="..\src\tinyxml_p\tinybind.h" />
     <ClInclude Include="..\src\tinyxml_p\tinystr.h" />
@@ -142,6 +144,7 @@
     <ClInclude Include="..\src\TriangulationCl.h" />
     <ClInclude Include="..\src\ui\Button2.h" />
     <ClInclude Include="..\src\ui\Modal.h" />
+    <ClInclude Include="..\src\window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\achievements.cpp" />
@@ -159,6 +162,8 @@
     <ClCompile Include="..\src\LogoScreen.cpp" />
     <ClCompile Include="..\src\MainScreen.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
+    <ClCompile Include="..\src\Popup.cpp" />
+    <ClCompile Include="..\src\SettingWindow.cpp" />
     <ClCompile Include="..\src\tinyxml_p\bind_dynamics.cpp" />
     <ClCompile Include="..\src\tinyxml_p\tinybind.cpp" />
     <ClCompile Include="..\src\tinyxml_p\tinystr.cpp" />
@@ -167,6 +172,7 @@
     <ClCompile Include="..\src\tinyxml_p\tinyxmlparser.cpp" />
     <ClCompile Include="..\src\ui\Button2.cpp" />
     <ClCompile Include="..\src\ui\Modal.cpp" />
+    <ClCompile Include="..\src\window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

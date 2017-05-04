@@ -22,7 +22,7 @@ enum sound_messages
 	all_music_resume
 };
 
-#define PlaySoundFX( name ) pushMessage( "sound_play", name ); 
+#define PlaySoundFX( name ) pushMessage( "sound_play", name );
 #define PlayMusic( name ) pushMessage( "music_play", name )
 #define PlaySoundFXHolder( name, ppHolderInst, options ) pushMessageEx( "sound_play", name, ppHolderInst, options )
 #define PlaySoundFXEnvironmentHolder( name, ppHolderInst, options ) pushMessageEx( "sound_play_env", name, ppHolderInst, options )
@@ -50,7 +50,7 @@ namespace oxygine
 
 		long				m_GlobalSoundIndex;
 
-		SoundMessage():			
+		SoundMessage():
 		m_GlobalSoundIndex( 0 )
 		{
 		}
@@ -77,7 +77,10 @@ namespace oxygine
 		void						CastMessageSound( SoundMessage message );
 
 		void					SetVolume( int v );
-		
+
+        void                    SetSoundVolume(int v);
+        void                    SetMusicVolume(int v);
+
 
 		pthread_t				_thread_music;
 		static std::map< long, spSoundInstance >		m_SoundsInst;

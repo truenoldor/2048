@@ -90,6 +90,15 @@
     <ClInclude Include="..\src\Board2048.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Popup.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\window.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SettingWindow.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\bezier.cpp">
@@ -159,6 +168,15 @@
       <Filter>Source Files\tixml</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Board2048.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Popup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SettingWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

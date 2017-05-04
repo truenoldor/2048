@@ -10,6 +10,7 @@ namespace oxygine
 		m_CurrentPers( 0 ),
 		m_IsRemoveAds( false ),
 		m_SoundOn( true ),
+        m_MusicOn( true ),
 		m_BestPoints( 0 ),
 		m_IsViewTutorial( false ),
         m_ShowRate( 0 ),
@@ -45,6 +46,8 @@ namespace oxygine
 		attrRemoveAds.set_value( ( int )m_IsRemoveAds );
 		pugi::xml_attribute attrSoundOn = root_node.append_attribute("sound_on");
 		attrSoundOn.set_value( ( int )m_SoundOn );
+        pugi::xml_attribute attrMusicOn = root_node.append_attribute("music_on");
+        attrMusicOn.set_value((int)m_MusicOn);
 		pugi::xml_attribute bestPointsAt = root_node.append_attribute("best_points");
 		bestPointsAt.set_value( ( int )m_BestPoints );
 
@@ -58,19 +61,19 @@ namespace oxygine
 
         pugi::xml_attribute attrShowRate = root_node.append_attribute("is_show_rate");
         attrShowRate.set_value( ( int )m_ShowRate );
-        
+
         pugi::xml_attribute attrLifes = root_node.append_attribute("lifes");
         attrLifes.set_value( ( int )m_LifesCount );
-        
+
         pugi::xml_attribute attrDeathWater = root_node.append_attribute("water_death");
         attrDeathWater.set_value( ( int )m_WaterDeath );
-        
+
         pugi::xml_attribute attrDeathFlower = root_node.append_attribute("flower_death");
         attrDeathFlower.set_value( ( int )m_FlowerDeath );
-        
+
         pugi::xml_attribute attrDeathWall = root_node.append_attribute("wall_death");
         attrDeathWall.set_value( ( int )m_WallDeath );
-        
+
         pugi::xml_attribute attrAllLifesBuy = root_node.append_attribute("all_lifes_buy");
         attrAllLifesBuy.set_value( ( int )m_AllLifesBuy );
 
@@ -80,20 +83,20 @@ namespace oxygine
 		pugi::xml_attribute videoAdsCounterTotal = root_node.append_attribute("videoAdsCounterTotal");
 		videoAdsCounterTotal.set_value((int)m_VideoAdsCounterTotal);
 
-		
-        
+
+
 		pugi::xml_node purchased = root_node.append_child("purchased");
-		
+
 		for (std::set< int >::iterator iter = m_PurchasedMonsters.begin(), iter_end = m_PurchasedMonsters.end(); iter != iter_end; ++iter)
 		{
 			pugi::xml_node po = purchased.append_child("po");
 			pugi::xml_attribute attrPers = po.append_attribute("pers");
 			attrPers.set_value((int)*iter);
 		}
-		
-		
-		
-		
+
+
+
+
 
 		XmlFileWriter writer(h);
 		doc.save(writer, "\t", pugi::format_default/* | pugi::format_write_bom*/, pugi::encoding_utf8);
@@ -136,14 +139,15 @@ namespace oxygine
 		m_CurrentPers = atoi( rootNode.attribute("current_pers").value() );
 		m_IsRemoveAds = atoi( rootNode.attribute("is_remove_ads").value() ) ? true : false;
 		m_SoundOn = atoi( rootNode.attribute("sound_on").value() ) ? true : false;
+        m_MusicOn = atoi(rootNode.attribute("music_on").value()) ? true : false;
 		m_BestPoints = atoi( rootNode.attribute("best_points").value() );
 		m_DefaultTwitterUser =  rootNode.attribute("def_twit_user").value();
 		m_DefaultTwitterPass =  rootNode.attribute("def_twit_pass").value();
 
 		m_IsViewTutorial = atoi( rootNode.attribute("is_view_tut").value() ) ? true : false;
-        
+
         m_ShowRate = atoi( rootNode.attribute("is_show_rate").value() );
-        
+
         m_LifesCount = atoi( rootNode.attribute("lifes").value() );
         if( m_LifesCount < 1 )
             m_LifesCount = 1;
@@ -152,10 +156,10 @@ namespace oxygine
         m_FlowerDeath = atoi( rootNode.attribute("flower_death").value() );
         m_WallDeath = atoi( rootNode.attribute("wall_death").value() );
         m_AllLifesBuy = atoi( rootNode.attribute("all_lifes_buy").value() );
-        
+
         m_VideoAdsCounter = atoi( rootNode.attribute("videoAdsCounter").value() );
         m_VideoAdsCounterTotal = atoi( rootNode.attribute("videoAdsCounterTotal").value() );
-        
+
 		m_PurchasedMonsters.clear();
 
 		pugi::xml_node purchased = rootNode.child("purchased");
@@ -169,10 +173,11 @@ namespace oxygine
 			}
 		}
 
-		g_MainScreen->SetVolume( m_SoundOn ? 100 : 0 );
+		g_MainScreen->SetSoundVolume( m_SoundOn ? 100 : 0 );
+        g_MainScreen->SetMusicVolume(m_MusicOn ? 100 : 0);
 		////g_SoundSystem.setVolume( m_SoundOn ? 100.f : 0.f );
-		
-			
+
+
 		////g_SoundSystem.setVolume( m_SoundOn ? 100.f : 0.f );
 
 		file::close(h);

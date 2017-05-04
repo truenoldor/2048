@@ -27,6 +27,7 @@ namespace oxygine
         spSprite                m_Back;
         spButton2               m_MenuBtn;
         spButton2               m_LBBtn;
+        spButton2               m_SettingsBtn;
         spSprite                m_ScoresBack;
         spSprite                m_BestBack;
 

@@ -5,6 +5,7 @@
 #include "achievements.h"
 #include "Android_Wrapper.h"
 #include "Localization.h"
+#include "SettingWindow.h"
 
 #if __ANDROID__
 #include "billing.h"
@@ -29,20 +30,21 @@ namespace oxygine
         m_Back->setResAnim(m_Resources.getResAnim("back"));
 
         m_MenuBtn = new Button2;
-        m_MenuBtn->setResAnim(m_Resources.getResAnim("menu_btn"));
+        m_MenuBtn->CreateTextButton(m_Resources.getResAnim("menu_btn"), "bip-2", 50, "localize_menu_btn", 0x000000ff);
         m_MenuBtn->setPosition(Vector2(600.f, 350.f));
-        spTextField textMenu = Helper::makeMeTextField("bip-2", 50, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
-        textMenu->setColor(Color(0x000000ff));
-        textMenu->setText(g_Localization.GetText("localize_menu_btn"));
-        Helper::linkTextField(m_MenuBtn, textMenu, Vector2( 0.f, -6.f ));
 
         m_LBBtn = new Button2;
-        m_LBBtn->setResAnim(m_Resources.getResAnim("gc_btn"));
+        m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "bip-2", 50, "localize_lb_btn", 0x000000ff);
         m_LBBtn->setPosition(Vector2(900.f, 350.f));
-        spTextField textLB = Helper::makeMeTextField("bip-2", 50, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
-        textLB->setColor(Color(0x000000ff));
-        textLB->setText(g_Localization.GetText("localize_lb_btn"));
-        Helper::linkTextField(m_LBBtn, textLB, Vector2(0.f, -6.f));
+
+        m_SettingsBtn = new Button2;
+        m_SettingsBtn->CreateTextButton(m_Resources.getResAnim("menu_btn"), "bip-2", 50, "localize_settings_btn", 0x000000ff);
+        m_SettingsBtn->setPosition(Vector2(200.f, 1750.f));
+        m_SettingsBtn->setPriority(11);
+        m_SettingsBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
+             spSettingWindow dlg = new SettingWindow;
+             dlg->init("scripts/res_settings.xml");
+        });
 
         m_ScoresBack = new Sprite;
         m_ScoresBack->setResAnim(m_Resources.getResAnim("score_back"));
@@ -83,6 +85,7 @@ namespace oxygine
         addChild(m_Back);
         addChild(m_MenuBtn);
         addChild(m_LBBtn);
+        addChild(m_SettingsBtn);
         addChild(m_ScoresBack);
         addChild(m_BestBack);
         addChild(m_Board);

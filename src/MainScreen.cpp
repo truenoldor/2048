@@ -69,6 +69,16 @@ namespace oxygine
 			m_MusicVolume = v;
 		}
 
+        void MainActor::SetSoundVolume(int v)
+        {
+            m_SoundVolume = v;
+        }
+
+        void MainActor::SetMusicVolume(int v)
+        {
+            m_MusicVolume = v;
+        }
+
 		SoundMessage MainActor::GetLastMessage()
 		{
 			SoundMessage msg;
