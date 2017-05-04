@@ -277,7 +277,9 @@ namespace oxygine
 				pTile->m_Denomination *= 2;
 				pTile->m_DenominationBuffer = 0;
 				m_Scores += pTile->m_Denomination;
-			//	RemoveTile(pTileTrace);
+
+                pTile->m_Score->addTween(Actor::TweenScale(1.6f), 350, 1, false, 0, Tween::ease_inSin);
+                pTile->m_Score->addTween(Actor::TweenScale(1.f), 200, 1, false, 351, Tween::ease_outSin);
 			}
 		}
 		);
