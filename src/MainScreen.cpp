@@ -510,11 +510,18 @@ namespace oxygine
             {
                 spMainMenuScreen scr = new MainMenuScreen();
                 scr->Init();
-
-                std::string message = showDialogAndWait(scr);
+								
+                std::string message = showDialogAndWait(scr, false);
 
                 if (message == "play")
                 {
+					scr->setPriority(10);
+					spTween tw = scr->addTween(Actor::TweenAlpha(0), 500, 1, false, 0, Tween::ease_linear);
+					tw->addDoneCallback([=](Event * e)->void
+					{
+						scr->detach();
+					}
+					);
                     generateAction("start_game");
                 }
 				else if (message == "close")
@@ -529,7 +536,7 @@ namespace oxygine
 				spGameScreen scr = new GameScreen();
 				scr->Init();
 
-				std::string message = showDialogAndWait(scr);
+				std::string message = showDialogAndWait(scr, false);
 
 				if ( message == "close" )
 				{
@@ -539,6 +546,14 @@ namespace oxygine
 				}
                 else if (message == "menu")
                 {
+					scr->setPriority(0);
+					spTween tw = scr->addTween(Actor::TweenAlpha(0), 500, 1, false, 0, Tween::ease_linear);
+					tw->addDoneCallback([=](Event * e)->void
+					{
+						scr->detach();
+					}
+					);
+
                     generateAction( "start_mainmenu" );
                 }
 			}

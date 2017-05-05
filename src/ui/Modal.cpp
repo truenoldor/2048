@@ -12,7 +12,7 @@ class ExitException
 Modal::Modal() : _timeFadeIn(280), _timeFadeOut(280), _skipShowing(false), _skipHiding(false), _transfering(false),
 	m_fastMode( true )
 {
-	setVisible(false);
+	setVisible(true);
 
 	spColorRectSprite dimmer = new ColorRectSprite();
 	dimmer->setName("dimmer");
@@ -106,6 +106,7 @@ void Modal::hideAndWait()
 
 void Modal::doShowing()
 {
+	return;
 	spActor dimmer = getChild("dimmer");
 
 	int duration = int(float(_timeFadeIn) * (dimmer->getAlpha() / 255.0f));
@@ -133,6 +134,7 @@ void Modal::doShowing()
 
 void Modal::doHiding()
 {
+	return;
 	spActor dimmer = getChild("dimmer");
 	dimmer->setVisible(true);
 
@@ -189,14 +191,20 @@ std::string Modal::showScreenAndWait(spModal screen)
 	return result;
 }
 
-std::string Modal::showDialogAndWait(spModal dialog)
+std::string Modal::showDialogAndWait(spModal dialog, bool removeAfterEnd)
 {
 	setTouchEnabled(false);
 	//	PlaySoundFX( g_SoundResources.get( "snd_splash_appear" ) );
 
+	dialog->setAlpha(0);
+	dialog->setPriority(1);
+	spTween tw = dialog->addTween(Actor::TweenAlpha(255), 500, 1, false, 0, Tween::ease_linear);
+
 	Stage::instance->addChild(dialog);
 	std::string result = dialog->loop();
-	Stage::instance->removeChild(dialog);
+	
+	if(removeAfterEnd)
+		Stage::instance->removeChild(dialog);
 
 	setTouchEnabled(true);
 

@@ -27,7 +27,7 @@ public:
 	std::string waitAction();
 
 	std::string showScreenAndWait(spModal screen);
-	std::string showDialogAndWait(spModal dialog);
+	std::string showDialogAndWait(spModal dialog, bool removeAfterEnd = true);
 
 	virtual void showAndWait();
 	virtual void preShowing(){}
