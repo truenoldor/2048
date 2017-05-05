@@ -32,6 +32,7 @@ namespace oxygine
         bool                        m_MusicOn;
         
         int                         m_ShowRate;
+        bool                        m_WasRate;
         
         int                         m_WaterDeath;
         int                         m_FlowerDeath;

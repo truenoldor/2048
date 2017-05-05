@@ -31,6 +31,7 @@ namespace oxygine
 
     private:
         void                    InitBoard();
+        void                    checkRateUs();
 
     private:
         oxygine::Resources      m_Resources;

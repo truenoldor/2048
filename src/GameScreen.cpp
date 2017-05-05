@@ -53,11 +53,29 @@ namespace oxygine
 
         InitBoard();
 
+        checkRateUs();
+
     }
 
     void GameScreen::Home()
     {
         generateAction("menu");
+        checkRateUs();
+    }
+
+    void GameScreen::checkRateUs()
+    {
+        if (Player::instance->m_WasRate)
+            return;
+
+        Player::instance->m_ShowRate++;
+        Player::instance->Save();
+
+        if (Player::instance->m_ShowRate % 5 == 0)
+        {
+            spRateUsWindow dlg = new RateUsWindow;
+            dlg->init("scripts/res_rateus.xml");
+        }
     }
 
     void GameScreen::Init()
@@ -78,9 +96,6 @@ namespace oxygine
         m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "bip-2", 50, "localize_lb_btn", 0x000000ff);
         m_LBBtn->setPosition(Vector2(900.f, 350.f));
         m_LBBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
-//             spRateUsWindow dlg = new RateUsWindow;
-//             dlg->init("scripts/res_rateus.xml");
-
         });
 
         m_SettingsBtn = new Button2;

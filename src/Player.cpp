@@ -20,7 +20,8 @@ namespace oxygine
         m_WallDeath( 0 ),
         m_AllLifesBuy( 0 ),
 		m_VideoAdsCounter( 0 ),
-		m_VideoAdsCounterTotal( 0 )
+		m_VideoAdsCounterTotal( 0 ),
+        m_WasRate( false )
 	{
 
 	}
@@ -61,6 +62,9 @@ namespace oxygine
 
         pugi::xml_attribute attrShowRate = root_node.append_attribute("is_show_rate");
         attrShowRate.set_value( ( int )m_ShowRate );
+
+        pugi::xml_attribute attrWasRate = root_node.append_attribute("was_rate");
+        attrWasRate.set_value((int)m_WasRate);
 
         pugi::xml_attribute attrLifes = root_node.append_attribute("lifes");
         attrLifes.set_value( ( int )m_LifesCount );
@@ -147,6 +151,7 @@ namespace oxygine
 		m_IsViewTutorial = atoi( rootNode.attribute("is_view_tut").value() ) ? true : false;
 
         m_ShowRate = atoi( rootNode.attribute("is_show_rate").value() );
+        m_WasRate = atoi(rootNode.attribute("was_rate").value()) ? true : false;
 
         m_LifesCount = atoi( rootNode.attribute("lifes").value() );
         if( m_LifesCount < 1 )

@@ -41,7 +41,9 @@ namespace oxygine
 
         if (btn->getName() == "rate_now")
         {
-
+            //rate this
+            Player::instance->m_WasRate = true;
+            Player::instance->Save();
         }
         else if (btn->getName() == "remind_later")
         {
@@ -49,7 +51,8 @@ namespace oxygine
         }
         else if (btn->getName() == "fuck_off")
         {
-
+            Player::instance->m_WasRate = true;
+            Player::instance->Save();
         }
     }
 }
