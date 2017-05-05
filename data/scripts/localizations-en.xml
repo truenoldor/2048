@@ -11,7 +11,11 @@
 	<Element>
         <Token>localize_settings_btn</Token>
         <Text>Settings</Text>
-    </Element>    	
+    </Element>   
+	<Element>
+        <Token>localize_play_btn</Token>
+        <Text>Play</Text>
+    </Element>   		
 	<Element>
         <Token>localize_scores</Token>
         <Text>Scores:</Text>

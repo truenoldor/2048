@@ -133,6 +133,7 @@
     <ClInclude Include="..\src\ios_wrapper.h" />
     <ClInclude Include="..\src\Localization.h" />
     <ClInclude Include="..\src\LogoScreen.h" />
+    <ClInclude Include="..\src\MainMenuScreen.h" />
     <ClInclude Include="..\src\MainScreen.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\Popup.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="..\src\ios_wrapper.cpp" />
     <ClCompile Include="..\src\Localization.cpp" />
     <ClCompile Include="..\src\LogoScreen.cpp" />
+    <ClCompile Include="..\src\MainMenuScreen.cpp" />
     <ClCompile Include="..\src\MainScreen.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Popup.cpp" />

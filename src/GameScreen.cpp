@@ -32,6 +32,9 @@ namespace oxygine
         m_MenuBtn = new Button2;
         m_MenuBtn->CreateTextButton(m_Resources.getResAnim("menu_btn"), "bip-2", 50, "localize_menu_btn", 0x000000ff);
         m_MenuBtn->setPosition(Vector2(600.f, 350.f));
+        m_MenuBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
+            generateAction("menu");
+        });
 
         m_LBBtn = new Button2;
         m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "bip-2", 50, "localize_lb_btn", 0x000000ff);
@@ -129,6 +132,10 @@ namespace oxygine
             {
                 g_SessionEnd = true;
 
+                return;
+            }
+            else if( action == "menu" )
+            {
                 return;
             }
         }

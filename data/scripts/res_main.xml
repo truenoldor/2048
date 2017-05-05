@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<resources>
+	<atlas format="8888"> 
+
+		<set path="images/main" />
+		<image file="back.png" />		
+		<image file="logo.png" />	
+		<image file="def_btn.png" />	
+		
+		
+	</atlas>
+	
+	
+</resources>

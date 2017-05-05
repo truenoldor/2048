@@ -1,6 +1,7 @@
 #include "MainScreen.h"
 #include "LogoScreen.h"
 #include "GameScreen.h"
+#include "MainMenuScreen.h"
 
 #include "tinyxml_p/bind_dynamics.h"
 
@@ -464,7 +465,8 @@ namespace oxygine
 
 				g_StartPreGame = true;
 				//m_UpPanel->StartScreenScreen();
-				generateAction( "start_game" );
+				//generateAction( "start_game" );
+                generateAction("start_mainmenu");
 				spActor sb = getChild( "static_back" );
 				sb->detach();
 				sb = NULL;
@@ -504,6 +506,18 @@ namespace oxygine
 					generateAction( "start_game" );
 				}
 			}
+            else if (action == "start_mainmenu")
+            {
+                spMainMenuScreen scr = new MainMenuScreen();
+                scr->Init();
+
+                std::string message = showDialogAndWait(scr);
+
+                if (message == "play")
+                {
+                    generateAction("start_game");
+                }
+            }            
 			else if( action == "start_game" )
 			{
 				spGameScreen scr = new GameScreen();
@@ -517,6 +531,10 @@ namespace oxygine
 					_result = "close";
 					break;
 				}
+                else if (message == "menu")
+                {
+                    generateAction( "start_mainmenu" );
+                }
 			}
 		}
 	}
