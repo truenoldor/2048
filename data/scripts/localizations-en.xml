@@ -27,7 +27,20 @@
 	<Element>
         <Token>localize_fuck_off</Token>
         <Text>Fuck off</Text>
+    </Element>   	
+	<Element>
+        <Token>localize_restart</Token>
+        <Text>Restart</Text>
     </Element>   		
+	<Element>
+        <Token>localize_you_scores_title</Token>
+        <Text>YOU SCORES:</Text>
+    </Element>   			
+	<Element>
+        <Token>localize_home</Token>
+        <Text>Home</Text>
+    </Element>   		
+	
 	<Element>
         <Token>localize_scores</Token>
         <Text>Scores:</Text>

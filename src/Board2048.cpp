@@ -1,5 +1,6 @@
 #include "Board2048.h"
 #include "Helper.h"
+#include "GameScreen.h"
 
 namespace oxygine
 {
@@ -83,7 +84,8 @@ namespace oxygine
 		});
 
 		addEventListener(TouchEvent::TOUCH_UP, [=](Event* e) {
-			m_State = ebsIdle;
+            if( m_State != ebsGameOver )
+			    m_State = ebsIdle;
 		});
 
 		EventCallback cb = CLOSURE(this, &Board2048::objectSlide);
@@ -514,7 +516,7 @@ namespace oxygine
             Player::instance->Save();
         }
 
-		if ( !checkTweens() )
+		if ( m_State != ebsGameOver && !checkTweens() )
 		{
 			checkLeftTurns();
 
@@ -553,6 +555,9 @@ namespace oxygine
 			if (IsDenominationNearCells(tile))
 				return;
 		}
+
+        m_State = ebsGameOver;
+        GameScreen::instance->YouScoresDlg();
 	}
 
     void Board2048::getFreeCells(std::vector< Point > & cells)

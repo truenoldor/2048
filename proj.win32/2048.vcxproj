@@ -147,6 +147,7 @@
     <ClInclude Include="..\src\ui\Button2.h" />
     <ClInclude Include="..\src\ui\Modal.h" />
     <ClInclude Include="..\src\window.h" />
+    <ClInclude Include="..\src\YouScoreWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\achievements.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="..\src\ui\Button2.cpp" />
     <ClCompile Include="..\src\ui\Modal.cpp" />
     <ClCompile Include="..\src\window.cpp" />
+    <ClCompile Include="..\src\YouScoreWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

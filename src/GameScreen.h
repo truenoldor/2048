@@ -21,6 +21,17 @@ namespace oxygine
 
         void                    Init();
 
+        static GameScreen *     instance;
+
+
+        void                    Restart();
+        void                    Home();
+
+        void                    YouScoresDlg();
+
+    private:
+        void                    InitBoard();
+
     private:
         oxygine::Resources      m_Resources;
 

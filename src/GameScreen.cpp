@@ -7,6 +7,7 @@
 #include "Localization.h"
 #include "SettingWindow.h"
 #include "RateUsWindow.h"
+#include "YouScoreWindow.h"
 
 #if __ANDROID__
 #include "billing.h"
@@ -14,13 +15,49 @@
 
 namespace oxygine
 {
+    GameScreen * GameScreen::instance = NULL;
     GameScreen::GameScreen()
     {
+        GameScreen::instance = this;
     }
 
     GameScreen::~GameScreen()
     {
         m_Resources.free();
+        GameScreen::instance = NULL;
+    }
+
+    void GameScreen::InitBoard()
+    {
+        m_Board = new Board2048;
+        m_Board->setPriority(10);
+        m_Board->setPosition(0.f, 500.f);
+        m_Board->Create(m_Resources);
+        addChild(m_Board);
+    }
+
+    void GameScreen::YouScoresDlg()
+    {
+        spYouScoreWindow dlg = new YouScoreWindow;
+        dlg->init("scripts/res_youscore.xml");
+        dlg->setScores(m_Board->getScores());
+    }
+
+    void GameScreen::Restart()
+    {
+        if (m_Board)
+        {
+            m_Board->detach();
+            m_Board = 0;
+        }
+
+        InitBoard();
+
+    }
+
+    void GameScreen::Home()
+    {
+        generateAction("menu");
     }
 
     void GameScreen::Init()
@@ -41,8 +78,9 @@ namespace oxygine
         m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "bip-2", 50, "localize_lb_btn", 0x000000ff);
         m_LBBtn->setPosition(Vector2(900.f, 350.f));
         m_LBBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
-            spRateUsWindow dlg = new RateUsWindow;
-            dlg->init("scripts/res_rateus.xml");
+//             spRateUsWindow dlg = new RateUsWindow;
+//             dlg->init("scripts/res_rateus.xml");
+
         });
 
         m_SettingsBtn = new Button2;
@@ -84,11 +122,7 @@ namespace oxygine
         textBestNum->setName("num_best");
         Helper::linkTextField(m_BestBack, textBestNum, Vector2(0.f, 28.f));
 
-        m_Board = new Board2048;
-        m_Board->setPriority(10);
-        m_Board->setPosition(0.f, 500.f);
-        m_Board->Create( m_Resources );
-
+        InitBoard();
 
         addChild(m_Back);
         addChild(m_MenuBtn);
@@ -96,9 +130,6 @@ namespace oxygine
         addChild(m_SettingsBtn);
         addChild(m_ScoresBack);
         addChild(m_BestBack);
-        addChild(m_Board);
-
-
     }
 
     void GameScreen::update(const UpdateState& us)

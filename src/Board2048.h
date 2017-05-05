@@ -75,7 +75,8 @@ namespace oxygine
 		{
 			ebsIdle,
 			ebsSlide,
-			ebsMoveProcess			
+			ebsMoveProcess,
+            ebsGameOver
 		}m_State;
     };
 };
