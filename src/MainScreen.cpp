@@ -517,6 +517,12 @@ namespace oxygine
                 {
                     generateAction("start_game");
                 }
+				else if (message == "close")
+				{
+					scr = NULL;
+					_result = "close";
+					break;
+				}
             }            
 			else if( action == "start_game" )
 			{

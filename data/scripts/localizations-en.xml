@@ -15,7 +15,24 @@
 	<Element>
         <Token>localize_play_btn</Token>
         <Text>Play</Text>
-    </Element>   		
+    </Element>   	
+	<Element>
+        <Token>localize_exit_btn</Token>
+        <Text>Exit</Text>
+    </Element>   
+	<Element>
+        <Token>localize_exit_title</Token>
+        <Text>Are you sure?</Text>
+    </Element>  
+	<Element>
+        <Token>localize_yes</Token>
+        <Text>Yes</Text>
+    </Element>  
+	<Element>
+        <Token>localize_no</Token>
+        <Text>No</Text>
+    </Element>   	
+	
 	<Element>
         <Token>localize_rate_now</Token>
         <Text>Rate now</Text>

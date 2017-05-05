@@ -17,10 +17,14 @@ namespace oxygine
         MainMenuScreen();
         virtual ~MainMenuScreen();
 
+		static MainMenuScreen *	instance;
+
         virtual void			update(const UpdateState& us)OVERRIDE;
         virtual void			doLoop()OVERRIDE;
 
         void                    Init();
+
+		void					Exit();
 
     private:
         oxygine::Resources      m_Resources;
@@ -30,5 +34,6 @@ namespace oxygine
         
         spButton2               m_PlayBtn;
         spButton2               m_SettingsBtn;
+		spButton2				m_ExitBtn;
     };
 };

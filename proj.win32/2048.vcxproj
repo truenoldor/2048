@@ -128,6 +128,7 @@
     <ClInclude Include="..\src\ConLIST.H" />
     <ClInclude Include="..\src\coroutines.h" />
     <ClInclude Include="..\src\definitions.h" />
+    <ClInclude Include="..\src\ExitWindow.h" />
     <ClInclude Include="..\src\GameScreen.h" />
     <ClInclude Include="..\src\Helper.h" />
     <ClInclude Include="..\src\ios_wrapper.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="..\src\coroutines.cpp" />
     <ClCompile Include="..\src\definitions.cpp" />
     <ClCompile Include="..\src\entry_point.cpp" />
+    <ClCompile Include="..\src\ExitWindow.cpp" />
     <ClCompile Include="..\src\GameScreen.cpp" />
     <ClCompile Include="..\src\Helper.cpp" />
     <ClCompile Include="..\src\ios_wrapper.cpp" />

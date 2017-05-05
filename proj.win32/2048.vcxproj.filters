@@ -108,6 +108,9 @@
     <ClInclude Include="..\src\YouScoreWindow.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\ExitWindow.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\bezier.cpp">
@@ -195,6 +198,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\YouScoreWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ExitWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
