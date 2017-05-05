@@ -33,6 +33,11 @@ namespace oxygine
         fuckOff->setPosition(Vector2(400.f, 1100.f));
         fuckOff->setName("fuck_off");
         registerButton(fuckOff.get());
+
+        Vector2 dstPos(getPosition());
+        setPosition(Vector2(dstPos.x, getSize().y + GAME_SIZE.y));
+        addTween(Actor::TweenPosition(dstPos - Vector2(0.f, 100.f)), 500, 1, false, 0, Tween::ease_inSin);
+        addTween(Actor::TweenPosition(dstPos), 200, 1, false, 501, Tween::ease_outSin);
     }
 
     void RateUsWindow::onBtnClick(Button * btn)

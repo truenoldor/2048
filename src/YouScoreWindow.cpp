@@ -42,6 +42,11 @@ namespace oxygine
         homeBtn->setPosition(Vector2(600.f, 800));
         homeBtn->setName("home");
         registerButton(homeBtn.get());
+
+        Vector2 dstPos(getPosition());
+        setPosition(Vector2(dstPos.x, getSize().y - GAME_SIZE.y));
+        addTween(Actor::TweenPosition(dstPos + Vector2(0.f, 100.f)), 500, 1, false, 0, Tween::ease_inSin);
+        addTween(Actor::TweenPosition(dstPos), 200, 1, false, 501, Tween::ease_outSin);
     }
 
     void YouScoreWindow::setScores(int scores)

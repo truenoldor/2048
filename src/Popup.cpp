@@ -28,7 +28,7 @@ namespace oxygine
         setPosition(GAME_SIZE.x / 2.f, GAME_SIZE.y / 2.f);
 
         m_Back->setPosition(getSize().x / 2.f, getSize().y / 2.f);
-        m_BlackScreen->setPosition(getSize().x / 2.f, getSize().y / 2.f);
+        m_BlackScreen->setPosition(getSize().x / 2.f, -getSize().y / 2.f);
     }
 
     void PopupWindow::onBtnClick( Button * )
@@ -41,13 +41,14 @@ namespace oxygine
         m_Resources.loadXML(res, ResourcesLoadOptions().prebuiltFolder("images-high"));
 
         m_BlackScreen = new ColorRectSprite;
-        m_BlackScreen->setSize(GAME_SIZE);
+        m_BlackScreen->setSize(Vector2( GAME_SIZE.x, GAME_SIZE.y * 4.f));
         m_BlackScreen->setColor( Color( 0x000000ff ) );
-        m_BlackScreen->setAlpha(0);
+        m_BlackScreen->setAlpha(80);
         m_BlackScreen->setAnchor(0.5f, 0.5f);
         m_BlackScreen->attachTo(this);
 
-        m_BlackScreen->addTween(Actor::TweenAlpha(80), 400, 1, false, 0, Tween::ease_inOutQuad);
+        setAlpha(0);
+        addTween(Actor::TweenAlpha(255), 400, 1, false, 0, Tween::ease_inOutQuad);
 
         setPriority(10000);
         attachTo(Stage::instance);
