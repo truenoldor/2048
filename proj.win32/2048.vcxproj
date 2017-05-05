@@ -137,6 +137,7 @@
     <ClInclude Include="..\src\MainScreen.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\Popup.h" />
+    <ClInclude Include="..\src\RateUsWindow.h" />
     <ClInclude Include="..\src\SettingWindow.h" />
     <ClInclude Include="..\src\tinyxml_p\bind_dynamics.h" />
     <ClInclude Include="..\src\tinyxml_p\tinybind.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="..\src\MainScreen.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Popup.cpp" />
+    <ClCompile Include="..\src\RateUsWindow.cpp" />
     <ClCompile Include="..\src\SettingWindow.cpp" />
     <ClCompile Include="..\src\tinyxml_p\bind_dynamics.cpp" />
     <ClCompile Include="..\src\tinyxml_p\tinybind.cpp" />

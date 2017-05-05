@@ -6,6 +6,7 @@
 #include "Android_Wrapper.h"
 #include "Localization.h"
 #include "SettingWindow.h"
+#include "RateUsWindow.h"
 
 #if __ANDROID__
 #include "billing.h"
@@ -39,6 +40,10 @@ namespace oxygine
         m_LBBtn = new Button2;
         m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "bip-2", 50, "localize_lb_btn", 0x000000ff);
         m_LBBtn->setPosition(Vector2(900.f, 350.f));
+        m_LBBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
+            spRateUsWindow dlg = new RateUsWindow;
+            dlg->init("scripts/res_rateus.xml");
+        });
 
         m_SettingsBtn = new Button2;
         m_SettingsBtn->CreateTextButton(m_Resources.getResAnim("menu_btn"), "bip-2", 50, "localize_settings_btn", 0x000000ff);

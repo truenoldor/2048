@@ -17,6 +17,18 @@
         <Text>Play</Text>
     </Element>   		
 	<Element>
+        <Token>localize_rate_now</Token>
+        <Text>Rate now</Text>
+    </Element>   		
+	<Element>
+        <Token>localize_remind_later</Token>
+        <Text>Remind later</Text>
+    </Element>   		
+	<Element>
+        <Token>localize_fuck_off</Token>
+        <Text>Fuck off</Text>
+    </Element>   		
+	<Element>
         <Token>localize_scores</Token>
         <Text>Scores:</Text>
     </Element>    
