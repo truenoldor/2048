@@ -18,8 +18,7 @@ apply plugin: 'com.android.application'
 dependencies {
     compile(project(':oxygine-extension'))
     compile(project(':oxygine-lib')) { exclude module: 'oxygine-extension' }
-    compile project(':oxygine-billing')
-    compile project(':oxygine-admob')
+    compile project(':oxygine-billing')    
     compile 'com.google.android.gms:play-services-games:9.8.0'
     compile 'com.google.android.gms:play-services-plus:9.8.0'
     compile 'com.google.firebase:firebase-ads:9.8.0' 
@@ -51,7 +50,7 @@ android {
         }
 
  defaultConfig {
-        applicationId "org.oxygine.2048"        
+        applicationId "org.oxygine.game2048"        
     }
 
 

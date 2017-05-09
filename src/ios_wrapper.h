@@ -1,6 +1,6 @@
 //
 //  ios_wrapper.h
-//  Jungle_ios
+//  game2048_ios
 //
 //  Created by Мак on 26.09.16.
 //  Copyright © 2016 Mac. All rights reserved.

@@ -73,14 +73,14 @@ void Purchase_IAP( const char * )
 #if __ANDROID__
 	//g_IAPRequestProcess = true;
 	g_HasBuyProduct = false;
-	oxygine::billing::purchase( ANDROID_BILLING, "" );
+	//oxygine::billing::purchase( ANDROID_BILLING, "" );
 #endif
 }
 
 void Restore_IAP()
 {
 #if __ANDROID__	
-	oxygine::billing::consume( ANDROID_BILLING );
+	//oxygine::billing::consume( ANDROID_BILLING );
 #endif
 }
 

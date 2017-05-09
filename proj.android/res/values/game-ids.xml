@@ -5,7 +5,7 @@ Save this file as res/values/games-ids.xml in your project.
 -->
 <resources>
   <string name="app_id">975845065045</string>
-  <string name="package_name">org.oxygine.2048</string>
+  <string name="package_name">org.oxygine.game2048</string>
   <string name="id_session_1">CgkI1YKYp7McEAIQAg</string>
   <string name="id_session_2">CgkI1YKYp7McEAIQAw</string>
   <string name="id_session_3">CgkI1YKYp7McEAIQBA</string>

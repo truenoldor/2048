@@ -88,7 +88,7 @@ namespace oxygine
         {
 #ifdef __ANDROID__
             //Andy_RateApp("title", "msg", "btn1", "btn2"); // setup later
-            rate this
+            //rate this
 #endif
             Player::instance->m_WasRate = true;
             Player::instance->Save();

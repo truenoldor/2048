@@ -6,6 +6,3 @@ project(':oxygine-extension').projectDir = new File('../../oxygine//oxygine-fram
 
 include 'oxygine-billing'
 project(':oxygine-billing').projectDir = new File('../../oxygine/oxygine-billing/android/billing')
-
-include 'oxygine-admob'
-project(':oxygine-admob').projectDir = new File('../../oxygine/oxygine-admob/android')
