@@ -36,10 +36,16 @@ namespace oxygine
         m_Board->setPosition(0.f, 500.f);
         m_Board->Create(m_Resources);
         addChild(m_Board);
+
+        Andy_GoogleAnalytics("round_begin");
     }
 
     void GameScreen::YouScoresDlg()
     {
+        char out[4096] = "";
+        sprintf(out, "%d", m_Board->getScores());
+        Andy_GoogleAnalytics("round_end", out );
+
         spYouScoreWindow dlg = new YouScoreWindow;
         dlg->init("scripts/res_youscore.xml");
         dlg->setScores(m_Board->getScores());

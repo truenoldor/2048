@@ -50,15 +50,17 @@ namespace oxygine
             Andy_RateNow();
             Player::instance->m_WasRate = true;
             Player::instance->Save();
+            Andy_GoogleAnalytics("rate_now");
         }
         else if (btn->getName() == "remind_later")
         {
-
+            Andy_GoogleAnalytics("rate_remind");
         }
         else if (btn->getName() == "fuck_off")
         {
             Player::instance->m_WasRate = true;
             Player::instance->Save();
+            Andy_GoogleAnalytics("rate_nomore");
         }
     }
 }

@@ -289,6 +289,30 @@ void Andy_UnlockAchi( const char * achi, int points )
 	}
 }
 
+void Andy_GoogleAnalytics(const char * action, const char * label)
+{
+    log::message("Andy_GoogleAnalytics: %s", action);
+    jmethodID mid;
+    JNIEnv *mEnv = jniGetEnv();
+    jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
+
+    if (mActivityClass)
+    {
+        log::message("find mActivityClass");
+    }
+
+    mid = mEnv->GetStaticMethodID(mActivityClass, "googleAnalyticsFunc", "(Ljava/lang/String;Ljava/lang/String;)Z");
+    if (mid) {
+        log::message("find mid");
+        jstring jtitle = (jstring)(mEnv->NewStringUTF(action));
+        jstring jtitle2 = (jstring)(mEnv->NewStringUTF(label));
+        mEnv->CallStaticBooleanMethod(mActivityClass, mid, jtitle, jtitle2);
+        mEnv->DeleteLocalRef(jtitle);
+        mEnv->DeleteLocalRef(jtitle2);
+    }
+}
+
+
 void Andy_SharedFunc( const char * achi, const char * param )
 {
 	log::message("unlock Andy_SharedFunc: %s", achi);

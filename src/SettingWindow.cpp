@@ -65,6 +65,13 @@ namespace oxygine
         if ( btn->getName() == "sound" )
         {
             Player::instance->m_SoundOn = !Player::instance->m_SoundOn;
+
+            if (Player::instance->m_SoundOn)
+                Andy_GoogleAnalytics("sound_on");
+            else
+                Andy_GoogleAnalytics("sound_off");
+
+
             g_MainScreen->SetSoundVolume(Player::instance->m_SoundOn ? 100 : 0);
             ////g_SoundSystem.setVolume( Player::instance->m_SoundOn ? 100.f : 0.f );
 
@@ -74,6 +81,12 @@ namespace oxygine
         else if (btn->getName() == "music")
         {
             Player::instance->m_MusicOn = !Player::instance->m_MusicOn;
+
+            if (Player::instance->m_MusicOn)
+                Andy_GoogleAnalytics("music_on");
+            else
+                Andy_GoogleAnalytics("music_off");
+
             g_MainScreen->SetMusicVolume(Player::instance->m_MusicOn ? 100 : 0);
             ////g_SoundSystem.setVolume( Player::instance->m_SoundOn ? 100.f : 0.f );
 

@@ -7,6 +7,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ApplicationInfo;
 import android.os.RemoteException;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.HitBuilders;
+
 import android.os.Bundle;
 import com.flurry.android.FlurryAgent;
 import java.io.File;
@@ -165,7 +169,9 @@ public class MainActivity extends OxygineActivity
 	final static VunglePub vunglePub = VunglePub.getInstance();
 	
 	//IMPORTANT!!! Flurry and billing data changing in the constants.h
-		
+
+	public static GoogleAnalytics analytics;
+    public static Tracker tracker;	
 
 	private final EventListener vungleListener = new EventListener(){
 
@@ -588,8 +594,20 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 		
 		Log.v(TAG, "pre GoogleApiClient.Builder");
 		
-		
-		
+		analytics = GoogleAnalytics.getInstance(this);
+		analytics.setLocalDispatchPeriod(1800);
+
+		tracker = analytics.newTracker("UA-98474346-1"); 
+		tracker.enableExceptionReporting(true);
+		tracker.enableAdvertisingIdCollection(true);
+		tracker.enableAutoActivityTracking(true);
+	
+		String name = "magic2048";
+	
+		/*Log.i(TAG, "screen name: " + name);
+		tracker.setScreenName("Image~" + name);
+		tracker.send(new HitBuilders.ScreenViewBuilder().build());*/		
+	
 		if( google )
 		{
 				mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -1146,6 +1164,28 @@ public void onDisconnected() {
         return builder.getNotification ();                     
     }
 
+	
+	public void googleAnalyticsFuncInternal( final String action, final String label )
+	{
+	
+	runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                tracker.send(new HitBuilders.EventBuilder()
+			.setCategory("common")
+			.setAction(action)
+			.setLabel(label)
+			.build());	
+            }
+        });	
+	}
+	
+	public static boolean googleAnalyticsFunc(String action, String label)
+	{
+		(( MainActivity )mSingleton ).googleAnalyticsFuncInternal( action, label );
+		return true;
+	}
+	
 	public void sharedFuncInternal( final String title, final String param)
 	{
 	
