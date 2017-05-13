@@ -48,6 +48,11 @@ namespace oxygine
         spYouScoreWindow dlg = new YouScoreWindow;
         dlg->init("scripts/res_youscore.xml");
         dlg->setScores(m_Board->getScores());
+
+#ifdef __ANDROID__
+        setScores(m_Board->getScores());
+#endif
+
     }
 
     void GameScreen::Restart()
@@ -103,6 +108,9 @@ namespace oxygine
         m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "bip-2", 50, "localize_lb_btn", 0x000000ff);
         m_LBBtn->setPosition(Vector2(900.f, 350.f));
         m_LBBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
+#ifdef __ANDROID__
+            Andy_ShowLeaderBoard();
+#endif
         });
 
         m_SettingsBtn = new Button2;
