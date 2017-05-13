@@ -47,7 +47,9 @@ namespace oxygine
         if (btn->getName() == "rate_now")
         {
             //rate this
+#ifdef __ANDROID__
             Andy_RateNow();
+#endif
             Player::instance->m_WasRate = true;
             Player::instance->Save();
             Andy_GoogleAnalytics("rate_now");

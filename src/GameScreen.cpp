@@ -36,7 +36,6 @@ namespace oxygine
         m_Board->setPosition(0.f, 500.f);
         m_Board->Create(m_Resources);
         addChild(m_Board);
-
         Andy_GoogleAnalytics("round_begin");
     }
 

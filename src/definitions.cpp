@@ -7,6 +7,13 @@ bool g_CheatsOn = false;
 #endif
 
 
+#ifndef __ANDROID__
+void Andy_GoogleAnalytics(const char * action, const char * label)
+{
+
+}
+#endif
+
 
 oxygine::Resources g_SoundResources;
 oxygine::SoundPlayer g_sfxPlayer;
