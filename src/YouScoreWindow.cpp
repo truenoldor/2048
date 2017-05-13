@@ -67,11 +67,15 @@ namespace oxygine
         {
             if (GameScreen::instance)
                 GameScreen::instance->Restart();
+
+            Andy_SharedFunc("show_ad", "");
         }
         else if (btn->getName() == "home")
         {
             if (GameScreen::instance)
                 GameScreen::instance->Home();
+
+            Andy_SharedFunc("show_ad", "");
         }
     }
 }

@@ -14,6 +14,8 @@ namespace oxygine
     {
         PopupWindow::init(res);
 
+      //  Andy_SharedFunc("show_ad", ""); //test
+
         setBack("back");
 
         spButton2 feedBack = new Button2;

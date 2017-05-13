@@ -1,4 +1,4 @@
-package org.oxygine.game2048;
+package com.divol13.magic2048;
 
 import org.oxygine.lib.OxygineActivity;
 //import org.oxygine.billing.BillingAmazon;
@@ -19,7 +19,7 @@ import android.util.Log;
 import android.content.pm.PackageManager.NameNotFoundException;
 
 //import org.oxygine.lib.R;
-import org.oxygine.game2048.R;
+import com.divol13.magic2048.R;
 
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
@@ -262,7 +262,7 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 					
 				}
 				 
-				//Chartboost.onStart(mSingleton);
+				Chartboost.onStart(mSingleton);				
             }
         });
 		
@@ -539,7 +539,7 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 	    public void onPause() {
 		
 		super.onPause();
-		//Chartboost.onPause(this);
+		Chartboost.onPause(this);
 		
 		vunglePub.onPause();
 
@@ -559,7 +559,7 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
         super.onResume();  
 		vunglePub.onResume();
 
-//	Chartboost.onResume(this);
+	Chartboost.onResume(this);
 	
 	if( !google )	
 	{
@@ -619,12 +619,17 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 		
     
 	
-		/*Chartboost.startWithAppId(this, "57837d8204b0167c2de92f19", "d0ce6f6d85693576cfd9cd4594f66c31aebc6f0c");
-
+		Chartboost.startWithAppId(this, "590ccccdf6cd4513e3384bc6", "d440479857715c0dafbf1cdd7a0bae2d5417c7ef");
+		//Chartboost.startWithAppId(this, "57837d8204b0167c2de92f19", "d0ce6f6d85693576cfd9cd4594f66c31aebc6f0c");
+		
+		Chartboost.setAutoCacheAds(true);
+		
+		//Chartboost.cacheInterstitial(CBLocation.LOCATION_HOME_SCREEN);
+		
 		Chartboost.setLoggingLevel(Level.ALL);
 		Chartboost.setDelegate(delegate);
 
-		Chartboost.onCreate(this);*/
+		Chartboost.onCreate(this);
 		
 		Log.v(TAG, "start mv");
 		
@@ -800,7 +805,7 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 				ad.setPositiveButton( ok, new OnClickListener() {
 					public void onClick(DialogInterface dialog, int arg1) {
 						Log.v (TAG,"onClick b1");
-						sharedFunc ("rate", "market://details?id=org.oxygine.game2048");
+						sharedFunc ("rate", "market://details?id=com.divol13.magic2048");
 					}
 				});
 				ad.setNegativeButton(cancel, new OnClickListener() {
@@ -903,9 +908,9 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 	protected void onStopInternal ()
 {        
         //Log.v(TAG, "Flurry end");
-		//Chartboost.onStop(this);
+		Chartboost.onStop(this);
 		
-		 //Chartboost.onDestroy(this);
+		 Chartboost.onDestroy(this);
 		 vunglePub.clearEventListeners();
 
 	      FlurryAgent.onEndSession (this);	
@@ -948,7 +953,7 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 				e1 = "amazon_"+e1;
 		
 		  PackageManager pm = g_PackageManager;
-		  ApplicationInfo appInfo = pm.getApplicationInfo("org.oxygine.game2048", 0);
+		  ApplicationInfo appInfo = pm.getApplicationInfo("com.divol13.magic2048", 0);
 		  String appFile = appInfo.sourceDir;
 		  long installed = new File(appFile).lastModified();
 		  int mLastEventTime = time;
@@ -1157,6 +1162,10 @@ public void onDisconnected() {
 				{
 					//Chartboost.showMoreApps(CBLocation.LOCATION_GAME_SCREEN);					
 				}
+				else if (title.equals ("show_ad"))
+				{
+					Chartboost.showInterstitial(CBLocation.LOCATION_HOME_SCREEN);					
+				}
 				else if (title.equals ("rate"))
 				{
 					mSingleton.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(param)));
@@ -1261,7 +1270,7 @@ public void onDisconnected() {
 		runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                (( MainActivity )mSingleton ).sharedFunc ("rate", "market://details?id=org.oxygine.game2048");
+                (( MainActivity )mSingleton ).sharedFunc ("rate", "market://details?id=com.divol13.magic2048");
             }
         });		
 	}

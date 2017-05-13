@@ -17,7 +17,7 @@ void SDL_FlurryEvent (int value, const char * title, const char * e2, const char
 	log::message("Start flurry ev");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -51,7 +51,7 @@ int Andy_GetPercentObb()
 
 	JNIEnv *mEnv = sg_JniInv ? sg_JniInv : jniGetEnv();
 	sg_JniInv = mEnv;
-	mActivityClassPercObb = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	mActivityClassPercObb = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	obbMethod= mEnv->GetStaticMethodID(mActivityClassPercObb, "getPercentObb", "()I");
 	if (obbMethod) {
@@ -67,7 +67,7 @@ void Andy_ShowAchi()
 	log::message("Andy_ShowAchi:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -87,7 +87,7 @@ void Andy_ShowLeaderBoard()
 	log::message("Andy_ShowLeaderBoard:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if (mActivityClass)
 	{
@@ -106,7 +106,7 @@ void startAdMob()
 	log::message("startVideoAd:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if (mActivityClass)
 	{
@@ -125,7 +125,7 @@ void Andy_RateNow()
     log::message("Andy_RateNow:");
     jmethodID mid;
     JNIEnv *mEnv = jniGetEnv();
-    jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+    jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
     if (mActivityClass)
     {
@@ -144,7 +144,7 @@ void Andy_RateApp( const char * title, const char * msg, const char * btn1, cons
 	log::message("rateApp:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if (mActivityClass)
 	{
@@ -171,7 +171,7 @@ void hideAdMob()
 	log::message("startVideoAd:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if (mActivityClass)
 	{
@@ -190,7 +190,7 @@ void startVideoAd()
 	log::message("startVideoAd:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if (mActivityClass)
 	{
@@ -211,7 +211,7 @@ void setScores(int value)
 	log::message("setScores");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if (mActivityClass)
 	{
@@ -230,7 +230,7 @@ bool Andy_IsGoogleConnect()
 	log::message("Andy_ShowAchi:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -252,7 +252,7 @@ bool Andy_SendMail()
 	log::message("Andy_SendMail:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -273,7 +273,7 @@ void Andy_UnlockAchi( const char * achi, int points )
 	log::message("unlock achi: %s", achi);
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -294,7 +294,7 @@ void Andy_SharedFunc( const char * achi, const char * param )
 	log::message("unlock Andy_SharedFunc: %s", achi);
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -317,7 +317,7 @@ bool Andy_IsGoogle()
 	log::message("unlock Andy_IsGoogle");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -338,7 +338,7 @@ void Andy_Start_App()
 	log::message("Andy_Start_App start game!!!:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
@@ -358,7 +358,7 @@ void Andy_Stop_App()
 	log::message("Andy_Stop_App:");
 	jmethodID mid;
 	JNIEnv *mEnv = jniGetEnv();
-	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+	jclass mActivityClass = (jclass) mEnv->NewGlobalRef(mEnv->FindClass("com/divol13/magic2048/MainActivity"));
 
 	if ( mActivityClass )
 	{
