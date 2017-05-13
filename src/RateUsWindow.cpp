@@ -47,6 +47,7 @@ namespace oxygine
         if (btn->getName() == "rate_now")
         {
             //rate this
+            Andy_RateNow();
             Player::instance->m_WasRate = true;
             Player::instance->Save();
         }

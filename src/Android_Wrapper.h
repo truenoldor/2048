@@ -19,6 +19,7 @@ void startVideoAd();
 void startAdMob();
 void hideAdMob();
 void Andy_RateApp(const char * title, const char * msg, const char * btn1, const char * btn2);
+void Andy_RateNow();
 
 
 void setScores(int value);

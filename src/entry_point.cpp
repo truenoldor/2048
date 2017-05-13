@@ -15,8 +15,6 @@ You could start from example.cpp and example.h it has main functions being calle
 #include "definitions.h"
 #include "localization.h"
 
-//#include "billing.h"
-
 using namespace oxygine;
 
 #include "MainScreen.h"
@@ -35,7 +33,11 @@ using namespace oxygine;
 
 #include "analytics.h"
 #if __ANDROID__
+
+#ifdef HAS_BILLING
 #include "billing.h"
+#endif
+
 #endif
 
 #include "constants.h"

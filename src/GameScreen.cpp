@@ -10,7 +10,9 @@
 #include "YouScoreWindow.h"
 
 #if __ANDROID__
+#ifdef HAS_BILLING
 #include "billing.h"
+#endif
 #endif
 
 namespace oxygine

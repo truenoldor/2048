@@ -3,7 +3,9 @@
 #include "analitycs_wrap.h"
 
 #if __ANDROID__
+#ifdef HAS_BILLING
 #include "billing.h"
+#endif
 #endif
 
 #include "constants.h"

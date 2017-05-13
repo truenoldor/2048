@@ -21,7 +21,7 @@ namespace oxygine
         m_Back->attachTo(this);
 
         m_Back->setAnchor(0.5f, 0.5f);
-        
+
         setSize(m_Back->getSize());
         setAnchor(0.5f, 0.5f);
 

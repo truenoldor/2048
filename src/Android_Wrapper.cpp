@@ -120,6 +120,25 @@ void startAdMob()
 	}
 }
 
+void Andy_RateNow()
+{
+    log::message("Andy_RateNow:");
+    jmethodID mid;
+    JNIEnv *mEnv = jniGetEnv();
+    jclass mActivityClass = (jclass)mEnv->NewGlobalRef(mEnv->FindClass("org/oxygine/game2048/MainActivity"));
+
+    if (mActivityClass)
+    {
+        log::message("find mActivityClass");
+    }
+
+    mid = mEnv->GetStaticMethodID(mActivityClass, "rateNow", "()V");
+    if (mid) {
+        log::message("find mid");
+        mEnv->CallStaticVoidMethod(mActivityClass, mid);
+    }
+}
+
 void Andy_RateApp( const char * title, const char * msg, const char * btn1, const char * btn2 )
 {
 	log::message("rateApp:");

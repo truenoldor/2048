@@ -87,6 +87,7 @@ namespace oxygine
         else if (btn->getName() == "rateus")
         {
 #ifdef __ANDROID__
+            Andy_RateNow();
             //Andy_RateApp("title", "msg", "btn1", "btn2"); // setup later
             //rate this
 #endif

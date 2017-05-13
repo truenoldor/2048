@@ -1,8 +1,8 @@
 package org.oxygine.game2048;
 
 import org.oxygine.lib.OxygineActivity;
-import org.oxygine.billing.BillingAmazon;
-import org.oxygine.billing.BillingGoogle;
+//import org.oxygine.billing.BillingAmazon;
+//import org.oxygine.billing.BillingGoogle;
 import android.content.pm.PackageManager;
 import android.content.pm.ApplicationInfo;
 import android.os.RemoteException;
@@ -156,8 +156,8 @@ public class MainActivity extends OxygineActivity
 	public static final int m_ObbLength = 534634827;
 	private static final boolean google = true;
 	public static final Integer mainVersion = 12;// This is changing in the manifest and entry_point.cpp ( SDL_SetHint )
-	public static final String dstMail = "busalaev.games@gmail.com";
-	public static final String gameName = "Crazymals";
+	public static final String dstMail = "divol13@gmail.com";
+	public static final String gameName = "2048 feedback";
 	//public static final String LEADERBOARD_ID = mSingleton.getString( R.string.leaderboard_table_of_the_scores );//"CgkI1YKYp7McEAIQAA";
 	public static final String LEADERBOARD_ID_AMAZON = "crazy_scores_id";
 	public static final int REQUEST_LEADERBOARD = 1234;
@@ -1254,6 +1254,21 @@ public void onDisconnected() {
 	public static void showAd()
 	{
 		(( MainActivity )mSingleton ).showAdInternal();		
+	}
+	
+	public void rateNowInternal()
+	{
+		runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                (( MainActivity )mSingleton ).sharedFunc ("rate", "market://details?id=org.oxygine.game2048");
+            }
+        });		
+	}
+	
+	public static void rateNow()
+	{
+		(( MainActivity )mSingleton ).rateNowInternal();				
 	}
 	
 	public void hideAdInternal()

@@ -49,7 +49,6 @@ LOCAL_STATIC_LIBRARIES := oxygine-framework_static
 LOCAL_SHARED_LIBRARIES := SDL2
 
 
-LOCAL_STATIC_LIBRARIES += oxygine-billing_static
 LOCAL_STATIC_LIBRARIES += oxygine-movie_static
 LOCAL_STATIC_LIBRARIES += oxygine-sound_static
 LOCAL_STATIC_LIBRARIES += oxygine-framework_static
@@ -60,7 +59,6 @@ include $(BUILD_SHARED_LIBRARY)
 
 
 #import from NDK_MODULE_PATH defined in build.cmd
-$(call import-module, oxygine-billing)
 $(call import-module, oxygine-movie)
 $(call import-module, oxygine-sound)
 $(call import-module, oxygine-framework)
