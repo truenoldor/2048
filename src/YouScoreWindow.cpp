@@ -47,6 +47,8 @@ namespace oxygine
         setPosition(Vector2(dstPos.x, getSize().y - GAME_SIZE.y));
         addTween(Actor::TweenPosition(dstPos + Vector2(0.f, 100.f)), 500, 1, false, 0, Tween::ease_inSin);
         addTween(Actor::TweenPosition(dstPos), 200, 1, false, 501, Tween::ease_outSin);
+
+        PlaySoundFX( "level_complete" );
     }
 
     void YouScoreWindow::setScores(int scores)

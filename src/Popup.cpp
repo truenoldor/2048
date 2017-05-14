@@ -1,5 +1,6 @@
 #include "Popup.h"
 #include "ui/Button2.h"
+#include "MainScreen.h"
 
 namespace oxygine
 {
@@ -52,6 +53,8 @@ namespace oxygine
 
         setPriority(10000);
         attachTo(Stage::instance);
+
+        PlaySoundFX( "splash_apear" );
     }
 
     void PopupWindow::onClick(Event * ev)

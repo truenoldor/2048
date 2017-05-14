@@ -160,6 +160,8 @@ namespace oxygine
         addChild(m_SettingsBtn);
         addChild(m_ScoresBack);
         addChild(m_BestBack);
+
+        PlayMusic2();
     }
 
     void GameScreen::update(const UpdateState& us)

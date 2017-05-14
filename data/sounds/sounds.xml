@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <resources>
-
-		
-	
-	
-	    
+	<set path = "sounds/all" streaming="true"/> 
+    <sound file="Button.ogg" streaming="true"/>	
+	<sound file="game_loop.ogg" streaming="true"/>
+	<sound file="menu_loop.ogg" streaming="true"/>
+	<sound file="level_complete.ogg" streaming="true"/>
+	<sound file="splash_apear.ogg" streaming="true"/>	    
 </resources>

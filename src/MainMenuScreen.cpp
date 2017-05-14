@@ -70,6 +70,8 @@ namespace oxygine
         addChild(m_SettingsBtn);
 		addChild(m_ExitBtn);
         addChild(m_Logo);
+
+        PlayMusic1();
     }
 
 	void MainMenuScreen::Exit()

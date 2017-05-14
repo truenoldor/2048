@@ -91,7 +91,7 @@ void PlayMusic1()
 		m_Music2 = 0;
 	}
 	if ( !m_Music1 )
-		PlayMusicFXHolder( "game_loop", &m_Music1, PlayOptions().loop() );
+		PlayMusicFXHolder( "menu_loop", &m_Music1, PlayOptions().loop() );
 }
 void PlayMusic2()
 {
@@ -101,7 +101,7 @@ void PlayMusic2()
 		m_Music1 = 0;
 	}
 	if( !m_Music2 )
-		PlayMusicFXHolder( "start_pause_gameover", &m_Music2, PlayOptions().loop() );
+		PlayMusicFXHolder( "game_loop", &m_Music2, PlayOptions().loop() );
 }
 
 
