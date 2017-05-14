@@ -289,7 +289,7 @@ void Andy_UnlockAchi( const char * achi, int points )
 	}
 }
 
-void Andy_GoogleAnalytics(const char * action, const char * label)
+void Andy_GoogleAnalytics(const char * category, const char * action, const char * label)
 {
     log::message("Andy_GoogleAnalytics: %s", action);
     jmethodID mid;
@@ -301,12 +301,13 @@ void Andy_GoogleAnalytics(const char * action, const char * label)
         log::message("find mActivityClass");
     }
 
-    mid = mEnv->GetStaticMethodID(mActivityClass, "googleAnalyticsFunc", "(Ljava/lang/String;Ljava/lang/String;)Z");
+    mid = mEnv->GetStaticMethodID(mActivityClass, "googleAnalyticsFunc", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z");
     if (mid) {
         log::message("find mid");
+        jstring jtitle0 = (jstring)(mEnv->NewStringUTF(category));
         jstring jtitle = (jstring)(mEnv->NewStringUTF(action));
         jstring jtitle2 = (jstring)(mEnv->NewStringUTF(label));
-        mEnv->CallStaticBooleanMethod(mActivityClass, mid, jtitle, jtitle2);
+        mEnv->CallStaticBooleanMethod(mActivityClass, mid, jtitle0, jtitle, jtitle2);
         mEnv->DeleteLocalRef(jtitle);
         mEnv->DeleteLocalRef(jtitle2);
     }

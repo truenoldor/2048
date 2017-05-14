@@ -51,14 +51,14 @@ namespace oxygine
 
 		if (btn->getName() == "yes")
 		{
-            Andy_GoogleAnalytics("exit_yes");
+            Andy_GoogleAnalytics("exit", "exit_yes");
 
 			if (MainMenuScreen::instance)
 				MainMenuScreen::instance->Exit();
 		}
 		else if (btn->getName() == "no")
 		{
-            Andy_GoogleAnalytics("exit_no");
+            Andy_GoogleAnalytics("exit", "exit_no");
 		}
 	}
 }

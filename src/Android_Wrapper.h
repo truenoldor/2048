@@ -21,7 +21,7 @@ void hideAdMob();
 void Andy_RateApp(const char * title, const char * msg, const char * btn1, const char * btn2);
 void Andy_RateNow();
 
-void Andy_GoogleAnalytics(const char * action, const char * label = "");
+void Andy_GoogleAnalytics(const char * category, const char * action, const char * label = "");
 
 
 void setScores(int value);

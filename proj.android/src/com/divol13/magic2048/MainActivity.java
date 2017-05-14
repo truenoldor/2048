@@ -1165,14 +1165,14 @@ public void onDisconnected() {
     }
 
 	
-	public void googleAnalyticsFuncInternal( final String action, final String label )
+	public void googleAnalyticsFuncInternal( final String category, final String action, final String label )
 	{
 	
 	runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 tracker.send(new HitBuilders.EventBuilder()
-			.setCategory("common")
+			.setCategory(category)
 			.setAction(action)
 			.setLabel(label)
 			.build());	
@@ -1180,9 +1180,9 @@ public void onDisconnected() {
         });	
 	}
 	
-	public static boolean googleAnalyticsFunc(String action, String label)
+	public static boolean googleAnalyticsFunc(String category,String action, String label)
 	{
-		(( MainActivity )mSingleton ).googleAnalyticsFuncInternal( action, label );
+		(( MainActivity )mSingleton ).googleAnalyticsFuncInternal( category, action, label );
 		return true;
 	}
 	

@@ -67,9 +67,9 @@ namespace oxygine
             Player::instance->m_SoundOn = !Player::instance->m_SoundOn;
 
             if (Player::instance->m_SoundOn)
-                Andy_GoogleAnalytics("sound_on");
+                Andy_GoogleAnalytics("settings", "sound_on");
             else
-                Andy_GoogleAnalytics("sound_off");
+                Andy_GoogleAnalytics("settings", "sound_off");
 
 
             g_MainScreen->SetSoundVolume(Player::instance->m_SoundOn ? 100 : 0);
@@ -83,9 +83,9 @@ namespace oxygine
             Player::instance->m_MusicOn = !Player::instance->m_MusicOn;
 
             if (Player::instance->m_MusicOn)
-                Andy_GoogleAnalytics("music_on");
+                Andy_GoogleAnalytics("settings", "music_on");
             else
-                Andy_GoogleAnalytics("music_off");
+                Andy_GoogleAnalytics("settings", "music_off");
 
             g_MainScreen->SetMusicVolume(Player::instance->m_MusicOn ? 100 : 0);
             ////g_SoundSystem.setVolume( Player::instance->m_SoundOn ? 100.f : 0.f );
@@ -97,6 +97,7 @@ namespace oxygine
         {
 #ifdef __ANDROID__
         Andy_SendMail();
+        Andy_GoogleAnalytics("feedback", "feedback_click");
 #endif
         }
         else if (btn->getName() == "rateus")

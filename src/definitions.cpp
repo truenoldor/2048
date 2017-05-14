@@ -8,7 +8,7 @@ bool g_CheatsOn = false;
 
 
 #ifndef __ANDROID__
-void Andy_GoogleAnalytics(const char * action, const char * label)
+void Andy_GoogleAnalytics(const char * category, const char * action, const char * label)
 {
 
 }
