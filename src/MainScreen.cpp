@@ -51,6 +51,9 @@ namespace oxygine
 			oxygine::SoundPlayer::initialize();
 
 			g_SoundResources.loadXML("sounds/sounds.xml");
+            ResSound * pResSwipe = g_SoundResources.getT<ResSound>( "Swipe" );
+            if (pResSwipe)
+                pResSwipe->getSound();
 
 			This->_threadFuncMusic( This );
 
@@ -510,7 +513,7 @@ namespace oxygine
             {
                 spMainMenuScreen scr = new MainMenuScreen();
                 scr->Init();
-								
+
                 std::string message = showDialogAndWait(scr, false);
 
                 if (message == "play")
@@ -530,7 +533,7 @@ namespace oxygine
 					_result = "close";
 					break;
 				}
-            }            
+            }
 			else if( action == "start_game" )
 			{
 				spGameScreen scr = new GameScreen();
