@@ -162,7 +162,7 @@ public class MainActivity extends OxygineActivity
 	public static final Integer mainVersion = 12;// This is changing in the manifest and entry_point.cpp ( SDL_SetHint )
 	public static final String dstMail = "divol13@gmail.com";
 	public static final String gameName = "2048 feedback";
-	//public static final String LEADERBOARD_ID = mSingleton.getString( R.string.leaderboard_table_of_the_scores );//"CgkI1YKYp7McEAIQAA";
+	//public static final String LEADERBOARD_ID = mSingleton.getString( R.string.leaderboard_table_of_scores );//"CgkI1YKYp7McEAIQAA";
 	public static final String LEADERBOARD_ID_AMAZON = "crazy_scores_id";
 	public static final int REQUEST_LEADERBOARD = 1234;
 	
@@ -285,7 +285,7 @@ EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
 				}
 				else				
 				{
-				String lboardId = mSingleton.getString( R.string.leaderboard_table_of_the_scores );
+				String lboardId = mSingleton.getString( R.string.leaderboard_table_of_scores );
 				
 				Log.v(TAG, "leader board ID:" + lboardId);
 				
@@ -1255,7 +1255,7 @@ public void onDisconnected() {
 				//mGoogleApiClient.connect();
 				return;
 			}
-			Games.Leaderboards.submitScore(mGoogleApiClient, mSingleton.getString( R.string.leaderboard_table_of_the_scores ), value);
+			Games.Leaderboards.submitScore(mGoogleApiClient, mSingleton.getString( R.string.leaderboard_table_of_scores ), value);
 		}
 		else
 		{
@@ -1372,187 +1372,14 @@ public void onDisconnected() {
 		
 		Log.v(TAG, "setAchievement pre " + title);
 	
-		
+		/*
 		if (title.equals ("id_session_1"))
 		{
 			Games.Achievements.unlock(mGoogleApiClient,
 				mSingleton.getString (R.string.id_session_1));
 
 		}
-		
-		if (title.equals ("id_session_2"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_session_2));
-
-		}
-		if (title.equals ("id_session_3"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_session_3));
-
-		}
-		
-		if (title.equals ("id_all_1"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_all_1));
-
-		}
-		
-		if (title.equals ("id_all_2"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_all_2));
-
-		}
-		
-		if (title.equals ("id_all_3"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_all_3));
-
-		}
-		
-		if (title.equals ("id_open_bear"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_bear));
-
-		}
-		
-		if (title.equals ("id_open_parrot"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_parrot));
-
-		}
-		
-		if (title.equals ("id_open_wild_cat"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_wild_cat));
-
-		}
-		
-		if (title.equals ("id_open_koala"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_koala));
-
-		}
-		
-		if (title.equals ("id_open_crocodile"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_crocodile));
-
-		}
-		
-		if (title.equals ("id_open_lizard"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_lizard));
-
-		}
-		
-		if (title.equals ("id_open_rhinoceros"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_rhinoceros));
-
-		}
-		
-		if (title.equals ("id_open_snake"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_open_snake));
-
-		}
-		
-		if (title.equals ("id_food_self_1"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_food_self_1));
-
-		}
-		
-		if (title.equals ("id_food_self_2"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_food_self_2));
-
-		}
-		
-		if (title.equals ("id_food_self_3"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_food_self_3));
-
-		}
-		
-		if (title.equals ("id_food_self_4"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_food_self_4));
-
-		}
-		
-		if (title.equals ("id_diver_1"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_diver_1));
-
-		}
-		
-		if (title.equals ("id_diver_2"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_diver_2));
-
-		}
-		
-		if (title.equals ("id_diver_3"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_diver_3));
-
-		}
-		
-		if (title.equals ("id_diver_4"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_diver_4));
-
-		}
-		
-		if (title.equals ("id_lifes1"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_lifes1));
-
-		}
-		
-		if (title.equals ("id_lifes2"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_lifes2));
-
-		}
-		
-		if (title.equals ("id_ads"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_ads));
-
-		}
-		
-		if (title.equals ("id_wall_breaker"))
-		{
-			Games.Achievements.unlock(mGoogleApiClient,
-				mSingleton.getString (R.string.id_wall_breaker));
-
-		}
+		*/
 		
 		return true;
 	}

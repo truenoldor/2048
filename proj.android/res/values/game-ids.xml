@@ -4,33 +4,6 @@ Google Play game services IDs.
 Save this file as res/values/games-ids.xml in your project.
 -->
 <resources>
-  <string name="app_id">975845065045</string>
-  <string name="package_name">com.divol13.magic2048</string>
-  <string name="id_session_1">CgkI1YKYp7McEAIQAg</string>
-  <string name="id_session_2">CgkI1YKYp7McEAIQAw</string>
-  <string name="id_session_3">CgkI1YKYp7McEAIQBA</string>
-  <string name="id_all_1">CgkI1YKYp7McEAIQBQ</string>
-  <string name="id_all_2">CgkI1YKYp7McEAIQBg</string>
-  <string name="id_all_3">CgkI1YKYp7McEAIQBw</string>
-  <string name="id_open_bear">CgkI1YKYp7McEAIQCA</string>
-  <string name="id_open_parrot">CgkI1YKYp7McEAIQCQ</string>
-  <string name="id_open_wild_cat">CgkI1YKYp7McEAIQCg</string>
-  <string name="id_open_koala">CgkI1YKYp7McEAIQDA</string>
-  <string name="id_open_crocodile">CgkI1YKYp7McEAIQDQ</string>
-  <string name="id_open_lizard">CgkI1YKYp7McEAIQDg</string>
-  <string name="id_open_rhinoceros">CgkI1YKYp7McEAIQDw</string>
-  <string name="id_open_snake">CgkI1YKYp7McEAIQEA</string>
-  <string name="id_food_self_1">CgkI1YKYp7McEAIQEQ</string>
-  <string name="id_food_self_2">CgkI1YKYp7McEAIQEg</string>
-  <string name="id_food_self_3">CgkI1YKYp7McEAIQEw</string>
-  <string name="id_food_self_4">CgkI1YKYp7McEAIQFA</string>
-  <string name="id_diver_1">CgkI1YKYp7McEAIQFQ</string>
-  <string name="id_diver_2">CgkI1YKYp7McEAIQFg</string>
-  <string name="id_diver_3">CgkI1YKYp7McEAIQFw</string>
-  <string name="id_diver_4">CgkI1YKYp7McEAIQGA</string>
-  <string name="id_wall_breaker">CgkI1YKYp7McEAIQGQ</string>
-  <string name="id_lifes1">CgkI1YKYp7McEAIQGg</string>
-  <string name="id_lifes2">CgkI1YKYp7McEAIQGw</string>
-  <string name="id_ads">CgkI1YKYp7McEAIQHA</string>
-  <string name="leaderboard_table_of_the_scores">CgkI1YKYp7McEAIQAA</string>
+  <string name="app_id">600054593561</string>
+  <string name="leaderboard_table_of_scores">CgkImfCpsLsREAIQAA</string>
 </resources>
