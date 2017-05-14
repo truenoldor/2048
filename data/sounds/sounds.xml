@@ -6,4 +6,5 @@
 	<sound file="menu_loop.ogg" streaming="true"/>
 	<sound file="level_complete.ogg" streaming="true"/>
 	<sound file="splash_apear.ogg" streaming="true"/>	    
+	<sound file="Swipe.ogg" streaming="true"/>	 
 </resources>

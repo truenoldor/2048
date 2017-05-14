@@ -365,7 +365,7 @@ void run()
 
 
 
-	PlayMusic2();
+	PlayMusic1();
 
 
 	log::messageln("Run step 2");

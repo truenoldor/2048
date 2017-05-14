@@ -1,6 +1,7 @@
 #include "Board2048.h"
 #include "Helper.h"
 #include "GameScreen.h"
+#include "MainScreen.h"
 
 namespace oxygine
 {
@@ -289,6 +290,7 @@ namespace oxygine
 
 	void Board2048::move(EBoardMoveDir dir)
 	{
+        PlaySoundFX("Swipe");
 		switch ( dir )
 		{
 			case enmdRight:
