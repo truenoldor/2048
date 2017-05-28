@@ -64,7 +64,9 @@ namespace oxygine
 		m_TouchPoint( 0.f, 0.f ),
 		m_State( ebsIdle ),
 		m_MoveCounter(0),
-		m_Scores(0)
+		m_Scores(0),
+        m_Finish( false ),
+        m_WithReward( false )
     {
 
     }
@@ -110,11 +112,11 @@ namespace oxygine
 		Spawn();
     }
 
-	bool Board2048::checkTweens()
+	bool Board2048::checkTweens(bool all)
 	{
 		for (spTile2048 tile : m_Tiles )
 		{
-			if (tile->getFirstTween() && ( tile->getFirstTween()->getName() == "move" ))
+			if (tile->getFirstTween() && (all || tile->getFirstTween()->getName() == "move" ))
 				return true;
 		}
 
@@ -284,8 +286,11 @@ namespace oxygine
 				pTile->m_DenominationBuffer = 0;
 				m_Scores += pTile->m_Denomination;
 
-                pTile->m_Score->addTween(Actor::TweenScale(1.6f), 350, 1, false, 0, Tween::ease_inSin);
-                pTile->m_Score->addTween(Actor::TweenScale(1.f), 200, 1, false, 351, Tween::ease_outSin);
+                pTile->addTween(Actor::TweenScale(1.4f), 350, 1, false, 0, Tween::ease_inSin);
+                pTile->addTween(Actor::TweenScale(1.f), 200, 1, false, 351, Tween::ease_outSin);
+                //pTile->setScale(0.f);
+                //pTile->addTween(Actor::TweenScale(1.1f), 250, 1, false, 100, Tween::ease_inSin);
+                //pTile->addTween(Actor::TweenScale(1.f), 100, 1, false, 351, Tween::ease_outSin);
 			}
 		}
 		);
@@ -529,6 +534,7 @@ namespace oxygine
 
         if (Player::instance->m_BestPoints < m_Scores)
         {
+            m_WithReward = true;
             Player::instance->m_BestPoints = m_Scores;
             Player::instance->Save();
         }
@@ -540,7 +546,7 @@ namespace oxygine
         }
 
 
-		if ( m_State != ebsGameOver && m_State != ebsWinProcess && !checkTweens() )
+		if ( m_State != ebsGameOver && m_State != ebsWinProcess && !checkTweens(false) )
 		{
 			checkLeftTurns();
 
@@ -575,14 +581,16 @@ namespace oxygine
         {
             if (tile->m_Denomination == 2048) // check win
             {
+                tile->setPriority(1000);
                 tile->addTween(Actor::TweenPosition(tile->getPosition() - Vector2( 0.f, 200.f )), 1300, 1, false, 200, Tween::ease_linear);
                 tile->addTween(Actor::TweenScale(1.8f), 1300, 1, false, 200, Tween::ease_linear);
                 tile->addTween(Actor::TweenAlpha(0), 1311, 1, false, 200, Tween::ease_linear)->addDoneCallback([=](Event * e)->void
                 {
-                    if ( m_State != ebsGameOver)
+                    if ( m_State != ebsGameOver && !m_Finish)
                     {
                         m_State = ebsGameOver;
-                        GameScreen::instance->YouScoresDlg(true);
+                        GameScreen::instance->YouScoresDlg(true, m_WithReward);
+                        m_Finish = true;
                     }
                 }
                 );
@@ -601,7 +609,9 @@ namespace oxygine
 		}
 
         m_State = ebsGameOver;
-        GameScreen::instance->YouScoresDlg( false );
+        if ( !!m_Finish)
+            GameScreen::instance->YouScoresDlg( false, m_WithReward);
+        m_Finish = true;
 	}
 
     void Board2048::getFreeCells(std::vector< Point > & cells)

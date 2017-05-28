@@ -8,9 +8,17 @@
 
 namespace oxygine
 {
-    YouScoreWindow::YouScoreWindow(bool win):
-        m_IsWin( win )
+    YouScoreWindow * YouScoreWindow::instance = 0;
+    YouScoreWindow::YouScoreWindow(bool win, bool withReward):
+        m_IsWin( win ),
+        m_WithReward(withReward)
     {
+        YouScoreWindow::instance = this;
+    }
+
+    YouScoreWindow::~YouScoreWindow()
+    {
+        YouScoreWindow::instance = 0;
     }
 
     void YouScoreWindow::init(const std::string & res)
@@ -55,17 +63,45 @@ namespace oxygine
         addTween(Actor::TweenPosition(dstPos + Vector2(0.f, 100.f)), 500, 1, false, 0, Tween::ease_inSin);
         addTween(Actor::TweenPosition(dstPos), 200, 1, false, 501, Tween::ease_outSin);
 
+        if (m_WithReward)
+        {
+            spSprite sptReward = new Sprite();
+            sptReward->setResAnim(m_Resources.getResAnim("reward"));
+            sptReward->setPriority(10);
+            sptReward->setPosition(0.f, 0.f);
+            sptReward->attachTo(this);
+        }
+
         PlaySoundFX( "level_complete" );
+    }
+
+    void YouScoreWindow::doUpdate( const UpdateState & us )
+    {
+        PopupWindow::doUpdate(us);
+        if (m_YouScoresNum)
+        {
+            char out[256] = "";
+
+            int scores = 0;
+            if (m_TweenCollect)
+            {
+                float sc = float( m_TargetScores );
+                sc *= m_TweenCollect->getPercent();
+                scores = int(sc);
+            }
+
+            sprintf(out, "%d", scores);
+            m_YouScoresNum->setText(out);
+        }
     }
 
     void YouScoreWindow::setScores(int scores)
     {
-        if (m_YouScoresNum)
-        {
-            char out[256] = "";
-            sprintf(out, "%d", scores);
-            m_YouScoresNum->setText(out);
-        }
+        if (m_TweenCollect)
+            removeTween(m_TweenCollect);
+
+        m_TweenCollect = addTween2(new Tween(), TweenOptions(1500).twoSides(false).loops(1).delay(0).ease( Tween::ease_inOutSin ));
+        m_TargetScores = scores;
     }
 
     void YouScoreWindow::onBtnClick(Button * btn)

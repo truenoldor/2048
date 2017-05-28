@@ -60,6 +60,10 @@ namespace oxygine
 		int								m_MoveCounter;		
 		int								m_Scores;
 
+        bool                            m_Finish;
+
+        bool                            m_WithReward;
+
 		enum EBoardMoveDir
 		{
 			enmdLeft,
@@ -70,7 +74,7 @@ namespace oxygine
 
 		void					move(EBoardMoveDir dir);
 		Tile2048 *				traceTile(const Point & p, EBoardMoveDir dir);
-		bool					checkTweens();
+		bool					checkTweens( bool all = false );
 
 		enum EBoardState
 		{

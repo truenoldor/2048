@@ -27,7 +27,7 @@ namespace oxygine
         void                    Restart();
         void                    Home();
 
-        void                    YouScoresDlg( bool win );
+        void                    YouScoresDlg( bool win, bool withReward );
 
     private:
         void                    InitBoard();
@@ -43,6 +43,6 @@ namespace oxygine
         spSprite                m_ScoresBack;
         spSprite                m_BestBack;
 
-        spBoard2048             m_Board;
+        spBoard2048             m_Board;        
 	};
 };

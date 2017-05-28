@@ -39,15 +39,19 @@ namespace oxygine
         Andy_GoogleAnalytics("round", "round_begin");
     }
 
-    void GameScreen::YouScoresDlg(bool win)
+    void GameScreen::YouScoresDlg(bool win, bool withReward)
     {
         char out[4096] = "";
         sprintf(out, "%d", m_Board->getScores());
         Andy_GoogleAnalytics("round", "round_end", out );
 
-        spYouScoreWindow dlg = new YouScoreWindow(win);
-        dlg->init("scripts/res_youscore.xml");
-        dlg->setScores(m_Board->getScores());
+        if ( !YouScoreWindow::instance)
+        {
+            spYouScoreWindow dlg = new YouScoreWindow(win, withReward);
+            dlg->init("scripts/res_youscore.xml");
+        }
+        
+        YouScoreWindow::instance->setScores(m_Board->getScores());
 
 #ifdef __ANDROID__
         setScores(m_Board->getScores());
@@ -106,7 +110,7 @@ namespace oxygine
 
         m_LBBtn = new Button2;
         m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "", 50, "", 0x000000ff);
-        m_LBBtn->setPosition(Vector2(810.f, 1760.f));
+        m_LBBtn->setPosition(Vector2(270.f, 1760.f));
         m_LBBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
 #ifdef __ANDROID__
             Andy_ShowLeaderBoard();
@@ -115,7 +119,7 @@ namespace oxygine
 
         m_SettingsBtn = new Button2;
         m_SettingsBtn->CreateTextButton(m_Resources.getResAnim("setting_btn"), "", 50, "", 0x000000ff);
-        m_SettingsBtn->setPosition(Vector2(270.f, 1760.f));
+        m_SettingsBtn->setPosition(Vector2(810.f, 1760.f));
         m_SettingsBtn->setPriority(11);
         m_SettingsBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
              spSettingWindow dlg = new SettingWindow;

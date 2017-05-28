@@ -44,7 +44,7 @@ namespace oxygine
         m_BlackScreen = new ColorRectSprite;
         m_BlackScreen->setSize(Vector2( GAME_SIZE.x, GAME_SIZE.y * 4.f));
         m_BlackScreen->setColor( Color( 0x000000ff ) );
-        m_BlackScreen->setAlpha(80);
+        m_BlackScreen->setAlpha(128);
         m_BlackScreen->setAnchor(0.5f, 0.5f);
         m_BlackScreen->attachTo(this);
 
