@@ -35,7 +35,7 @@ namespace oxygine
         spCloseWindowButton2 exitBtn = new CloseWindowButton2;
         exitBtn->CreateTextButton(m_Resources.getResAnim("close_btn"), "", 50, "", 0x000000ff, Vector2( 0.f, 0.f ));
         exitBtn->setPosition(Vector2(960.f, 20));
-        exitBtn->setName("no");
+        exitBtn->setName("restart");
         registerButton(exitBtn.get());
 
         spCloseWindowButton2 restartBtn = new CloseWindowButton2;
