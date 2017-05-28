@@ -21,6 +21,9 @@ namespace oxygine
 
         spTextField makeMeTextField( const std::string & font, int size, TextStyle::HorizontalAlign ha, TextStyle::VerticalAlign va )
         {
+            if (font.empty())
+                return 0;
+
             spTextField text = new TextField;
             TextStyle style;
             style.font = g_GameResources.getResFont(font);

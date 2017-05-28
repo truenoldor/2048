@@ -8,7 +8,7 @@ namespace oxygine
     class YouScoreWindow : public PopupWindow
     {
     public:
-        YouScoreWindow();
+        YouScoreWindow(bool win);
         virtual void        init(const std::string & res) OVERRIDE;
         virtual void        onBtnClick(Button * btn)OVERRIDE;
 
@@ -16,5 +16,6 @@ namespace oxygine
 
     private:
         spTextField         m_YouScoresNum;
+        bool                m_IsWin;
     };
 }

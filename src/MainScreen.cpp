@@ -197,7 +197,7 @@ namespace oxygine
 
 				//initialize text style
 				TextStyle style;
-				style.font = g_GameResources.getResFont( "bip-2" );
+				style.font = g_GameResources.getResFont( "CyrillicCompressed-64" );
 				style.color = Color::White;
 				style.vAlign = TextStyle::VALIGN_TOP;
 				style.hAlign = TextStyle::HALIGN_LEFT;

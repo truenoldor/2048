@@ -51,7 +51,7 @@
     </Element>   		
 	<Element>
         <Token>localize_you_scores_title</Token>
-        <Text>YOU SCORES:</Text>
+        <Text>You Scores:</Text>
     </Element>   			
 	<Element>
         <Token>localize_home</Token>
@@ -60,18 +60,31 @@
 	
 	<Element>
         <Token>localize_scores</Token>
-        <Text>Scores:</Text>
+        <Text>Scores</Text>
     </Element>    
 	<Element>
         <Token>localize_best</Token>
-        <Text>Best:</Text>
+        <Text>Best</Text>
     </Element>    
 	
+	<Element>
+        <Token>localize_settings_title</Token>
+        <Text>Settings</Text>
+    </Element>
+	
+	<Element>
+        <Token>localize_rateus_title</Token>
+        <Text>Like our game?</Text>
+    </Element>
+	
+	
+
+
 	<!-- settings -->
 	
 	<Element>
         <Token>localize_feedback</Token>
-        <Text>feedback</Text>
+        <Text>Feedback</Text>
     </Element>    	
 	<Element>
         <Token>localize_rateus</Token>

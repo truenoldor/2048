@@ -1,16 +1,30 @@
 <?xml version="1.0"?>
 <resources>
-	<atlas format="8888"> 
-
-		<set path="images/game" />
+	<set path="images/game" />
+	<atlas format="8888"> 	
 		<image file="back.png" />		
 		<image file="best_back.png" />		
 		<image file="border.png" />		
 		<image file="chip.png" />		
 		<image file="gc_btn.png" />		
 		<image file="menu_btn.png" />		
-		<image file="score_back.png" />		
-		
+		<image file="setting_btn.png" />		
+		<image file="score_back.png" />				
+	</atlas>
+	
+	<set path="images/game/chips" />
+	<atlas format="8888"> 	
+		<image file="2.png" />		
+		<image file="4.png" />		
+		<image file="8.png" />		
+		<image file="16.png" />		
+		<image file="32.png" />		
+		<image file="64.png" />		
+		<image file="128.png" />		
+		<image file="256.png" />		
+		<image file="512.png" />		
+		<image file="1024.png" />				
+		<image file="2048.png" />				
 	</atlas>
 	
 	

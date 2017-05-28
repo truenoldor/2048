@@ -417,7 +417,7 @@ void run()
 	SDL_Window* pWindow = core::getWindow();
 	SDL_SetWindowSize( pWindow, size.x, size.y );
     //DebugActor is a helper actor node. It shows FPS, memory usage and other useful stuff
-    DebugActor::show();
+    //DebugActor::show();
 
 
     //initialize this example stuff. see example.cpp

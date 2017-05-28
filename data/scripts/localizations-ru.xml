@@ -60,12 +60,22 @@
 	
 	<Element>
         <Token>localize_scores</Token>
-        <Text>Очки:</Text>
+        <Text>Очки</Text>
     </Element>    
 	<Element>
         <Token>localize_best</Token>
-        <Text>Лучший:</Text>
+        <Text>Лучший</Text>
     </Element>    
+	
+	<Element>
+        <Token>localize_settings_title</Token>
+        <Text>Settings</Text>
+    </Element>    
+
+	<Element>
+        <Token>localize_rateus_title</Token>
+        <Text>Нравится игра?</Text>
+    </Element>	
 	
 	<!-- settings -->
 	

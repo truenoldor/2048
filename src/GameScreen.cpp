@@ -39,13 +39,13 @@ namespace oxygine
         Andy_GoogleAnalytics("round", "round_begin");
     }
 
-    void GameScreen::YouScoresDlg()
+    void GameScreen::YouScoresDlg(bool win)
     {
         char out[4096] = "";
         sprintf(out, "%d", m_Board->getScores());
         Andy_GoogleAnalytics("round", "round_end", out );
 
-        spYouScoreWindow dlg = new YouScoreWindow;
+        spYouScoreWindow dlg = new YouScoreWindow(win);
         dlg->init("scripts/res_youscore.xml");
         dlg->setScores(m_Board->getScores());
 
@@ -98,15 +98,15 @@ namespace oxygine
         m_Back->setResAnim(m_Resources.getResAnim("back"));
 
         m_MenuBtn = new Button2;
-        m_MenuBtn->CreateTextButton(m_Resources.getResAnim("menu_btn"), "bip-2", 50, "localize_menu_btn", 0x000000ff);
-        m_MenuBtn->setPosition(Vector2(600.f, 350.f));
+        m_MenuBtn->CreateTextButton(m_Resources.getResAnim("menu_btn"), "", 50, "", 0x000000ff);
+        m_MenuBtn->setPosition(Vector2(540.f, 1760.f));
         m_MenuBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
             generateAction("menu");
         });
 
         m_LBBtn = new Button2;
-        m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "bip-2", 50, "localize_lb_btn", 0x000000ff);
-        m_LBBtn->setPosition(Vector2(900.f, 350.f));
+        m_LBBtn->CreateTextButton(m_Resources.getResAnim("gc_btn"), "", 50, "", 0x000000ff);
+        m_LBBtn->setPosition(Vector2(810.f, 1760.f));
         m_LBBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
 #ifdef __ANDROID__
             Andy_ShowLeaderBoard();
@@ -114,8 +114,8 @@ namespace oxygine
         });
 
         m_SettingsBtn = new Button2;
-        m_SettingsBtn->CreateTextButton(m_Resources.getResAnim("menu_btn"), "bip-2", 50, "localize_settings_btn", 0x000000ff);
-        m_SettingsBtn->setPosition(Vector2(200.f, 1750.f));
+        m_SettingsBtn->CreateTextButton(m_Resources.getResAnim("setting_btn"), "", 50, "", 0x000000ff);
+        m_SettingsBtn->setPosition(Vector2(270.f, 1760.f));
         m_SettingsBtn->setPriority(11);
         m_SettingsBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
              spSettingWindow dlg = new SettingWindow;
@@ -123,34 +123,34 @@ namespace oxygine
         });
 
         m_ScoresBack = new Sprite;
-        m_ScoresBack->setResAnim(m_Resources.getResAnim("score_back"));
-        m_ScoresBack->setPosition(Vector2(500.f, 100.f));
+        //m_ScoresBack->setResAnim(m_Resources.getResAnim("score_back"));
+        m_ScoresBack->setPosition(Vector2(190.f, 310.f));
 
-        spTextField textScores = Helper::makeMeTextField("bip-2", 50, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
-        textScores->setColor(Color(0xffffffff));
+        spTextField textScores = Helper::makeMeTextField("a_Alterna-64", 60, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        textScores->setColor(Color(0xffa800ff));
         textScores->setText(g_Localization.GetText("localize_scores"));
         Helper::linkTextField(m_ScoresBack, textScores, Vector2(0.f, -48.f));
 
-        spTextField textScoresNum = Helper::makeMeTextField("bip-2", 40, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        spTextField textScoresNum = Helper::makeMeTextField("a_Alterna-128", 110, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
         textScoresNum->setColor(Color(0xffffffff));
         textScoresNum->setText("0");
 		textScoresNum->setName("num_text");
-        Helper::linkTextField(m_ScoresBack, textScoresNum, Vector2(0.f, 28.f));
+        Helper::linkTextField(m_ScoresBack, textScoresNum, Vector2(0.f, 80.f));
 
         m_BestBack = new Sprite;
-        m_BestBack->setResAnim(m_Resources.getResAnim("best_back"));
-        m_BestBack->setPosition(Vector2(800.f, 100.f));
+        //m_BestBack->setResAnim(m_Resources.getResAnim("best_back"));
+        m_BestBack->setPosition(Vector2(880.f, 310.f));
 
-        spTextField textBest = Helper::makeMeTextField("bip-2", 50, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
-        textBest->setColor(Color(0xffffffff));
+        spTextField textBest = Helper::makeMeTextField("a_Alterna-64", 60, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        textBest->setColor(Color(0xffa800ff));
         textBest->setText(g_Localization.GetText("localize_best"));
         Helper::linkTextField(m_BestBack, textBest, Vector2(0.f, -48.f));
 
-        spTextField textBestNum = Helper::makeMeTextField("bip-2", 40, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        spTextField textBestNum = Helper::makeMeTextField("a_Alterna-128", 110, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
         textBestNum->setColor(Color(0xffffffff));
         textBestNum->setText("0");
         textBestNum->setName("num_best");
-        Helper::linkTextField(m_BestBack, textBestNum, Vector2(0.f, 28.f));
+        Helper::linkTextField(m_BestBack, textBestNum, Vector2(0.f, 80.f));
 
         InitBoard();
 

@@ -1,6 +1,8 @@
 #include "SettingWindow.h"
 #include "MainScreen.h"
 #include "Android_Wrapper.h"
+#include "Helper.h"
+#include "Localization.h"
 
 
 namespace oxygine
@@ -18,26 +20,33 @@ namespace oxygine
 
         setBack("back");
 
+        spTextField title = Helper::makeMeTextField("a_Alterna-64", 70, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        title->setColor(Color(255, 168, 0, 255));
+        title->setPosition(getSize().x / 2.f - 5.f, 127.f);
+        title->setAnchor(0.5f, 0.f);
+        title->setText(g_Localization.GetText("localize_settings_title"));
+        title->attachTo(this);
+
         spButton2 feedBack = new Button2;
-        feedBack->CreateTextButton(m_Resources.getResAnim("def_btn"), "bip-2", 50, "localize_feedback", 0x000000ff);
-        feedBack->setPosition(Vector2(170.f, 1150.f));
+        feedBack->CreateTextButton(m_Resources.getResAnim("def_btn"), "CyrillicCompressed-64", 50, "localize_feedback", 0xfff78dff, (Vector2(-7.f, -15.f)));
+        feedBack->setPosition(Vector2(305.f, 590.f));
         feedBack->setName("mail");
         registerButton(feedBack.get());
 
         spButton2 rateUS = new Button2;
-        rateUS->CreateTextButton(m_Resources.getResAnim("def_btn"), "bip-2", 50, "localize_rateus", 0x000000ff);
-        rateUS->setPosition(Vector2(640.f, 1150.f));
+        rateUS->CreateTextButton(m_Resources.getResAnim("def_btn"), "CyrillicCompressed-64", 50, "localize_rateus", 0xfff78dff, (Vector2(-7.f, -15.f)));
+        rateUS->setPosition(Vector2(665.f, 585.f));
         rateUS->setName("rateus");
         registerButton(rateUS.get());
 
         spCloseWindowButton2 closeBtn = new CloseWindowButton2;
         closeBtn->setResAnim(m_Resources.getResAnim("close_btn"));
-        closeBtn->setPosition(Vector2(750.f, 0.f));
+        closeBtn->setPosition(Vector2(955.f, 20));
         registerButton(closeBtn.get());
 
         spButton2 music = new Button2;
         music->setResAnim(m_Resources.getResAnim("music"));
-        music->setPosition(Vector2(200.f, 250.f));
+        music->setPosition(Vector2(300.f, 360.f));
         music->setName("music");
         registerButton(music.get());
         if (!Player::instance->m_MusicOn)
@@ -46,7 +55,7 @@ namespace oxygine
 
         spButton2 sound = new Button2;
         sound->setResAnim(m_Resources.getResAnim("sound"));
-        sound->setPosition(Vector2(640.f, 250.f));
+        sound->setPosition(Vector2(650.f, 360.f));
         sound->setName("sound");
         registerButton(sound.get());
         if (!Player::instance->m_SoundOn)

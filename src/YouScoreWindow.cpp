@@ -8,9 +8,9 @@
 
 namespace oxygine
 {
-    YouScoreWindow::YouScoreWindow()
+    YouScoreWindow::YouScoreWindow(bool win):
+        m_IsWin( win )
     {
-
     }
 
     void YouScoreWindow::init(const std::string & res)
@@ -19,27 +19,34 @@ namespace oxygine
 
         setBack("back");
 
-        spTextField youScores = Helper::makeMeTextField("bip-2", 70, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
-        youScores->setPosition(getSize().x / 2.f, 100.f);
+        spTextField youScores = Helper::makeMeTextField("a_Alterna-64", 70, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        youScores->setColor(Color(255, 168, 0, 255));
+        youScores->setPosition(getSize().x / 2.f, 125.f);
         youScores->setAnchor(0.5f, 0.f);
         youScores->setText(g_Localization.GetText("localize_you_scores_title"));
         youScores->attachTo(this);
 
-        m_YouScoresNum = Helper::makeMeTextField("bip-2", 60, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
-        m_YouScoresNum->setPosition(getSize().x / 2.f, 300.f);
+        m_YouScoresNum = Helper::makeMeTextField("CyrillicCompressed-128", 98, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        m_YouScoresNum->setColor( Color(255, 247, 141, 255) );
+        m_YouScoresNum->setPosition(getSize().x / 2.f, 555.f);
         m_YouScoresNum->setAnchor(0.5f, 0.f);
         m_YouScoresNum->attachTo(this);
 
+        spCloseWindowButton2 exitBtn = new CloseWindowButton2;
+        exitBtn->CreateTextButton(m_Resources.getResAnim("close_btn"), "", 50, "", 0x000000ff, Vector2( 0.f, 0.f ));
+        exitBtn->setPosition(Vector2(960.f, 20));
+        exitBtn->setName("no");
+        registerButton(exitBtn.get());
 
         spCloseWindowButton2 restartBtn = new CloseWindowButton2;
-        restartBtn->CreateTextButton(m_Resources.getResAnim("def_btn"), "bip-2", 50, "localize_restart", 0x000000ff);
-        restartBtn->setPosition(Vector2(200.f, 800));
+        restartBtn->CreateTextButton(m_Resources.getResAnim("def_btn"), "CyrillicCompressed-64", 50, "localize_restart", 0xfff78dff, Vector2(-7.f, -15.f));
+        restartBtn->setPosition(Vector2(310.f, 790));
         restartBtn->setName("restart");
         registerButton(restartBtn.get());
 
         spCloseWindowButton2 homeBtn = new CloseWindowButton2;
-        homeBtn->CreateTextButton(m_Resources.getResAnim("def_btn"), "bip-2", 50, "localize_home", 0x000000ff);
-        homeBtn->setPosition(Vector2(600.f, 800));
+        homeBtn->CreateTextButton(m_Resources.getResAnim("def_btn"), "CyrillicCompressed-64", 50, "localize_home", 0xfff78dff, Vector2(-7.f, -15.f));
+        homeBtn->setPosition(Vector2(655.f, 790));
         homeBtn->setName("home");
         registerButton(homeBtn.get());
 

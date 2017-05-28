@@ -27,7 +27,7 @@ namespace oxygine
         void                    Restart();
         void                    Home();
 
-        void                    YouScoresDlg();
+        void                    YouScoresDlg( bool win );
 
     private:
         void                    InitBoard();

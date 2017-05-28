@@ -3,8 +3,11 @@
 	    
 
 	<set path="fonts"/>
-	
-	<font file="bip-2.fnt" />		
+		
+	<font file="a_Alterna-64.fnt" />		
+	<font file="a_Alterna-128.fnt" />		
+	<font file="CyrillicCompressed-64.fnt" />			
+	<font file="CyrillicCompressed-128.fnt" />				
 	
 	<set scale_factor="1.0"/>
 	

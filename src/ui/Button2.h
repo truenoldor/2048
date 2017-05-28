@@ -26,7 +26,11 @@ public:
 
     void                    setDoubleMask();
 
-    void                    CreateTextButton(const ResAnim * res, const std::string & font, int fontSize, const std::string & text, unsigned long color = 0xffffffff);
+    void                    CreateTextButton(const ResAnim * res, const std::string & font, int fontSize, const std::string & text, unsigned long color, const Vector2 & delta );
+    void                    CreateTextButton(const ResAnim * res, const std::string & font, int fontSize, const std::string & text, unsigned long color)
+    {
+        CreateTextButton(res, font, fontSize, text, color, Vector2( 0.f, 0.f ));
+    }
 
 
 protected:

@@ -50,6 +50,7 @@ namespace oxygine
 		bool					IsEmptyNearCells(spTile2048 tile);
 		bool					IsDenominationNearCells(spTile2048 tile);
 		bool					belongArea(const Point & p);
+        const ResAnim *         getResWithScore(int den);
 
     private:
 
@@ -76,6 +77,7 @@ namespace oxygine
 			ebsIdle,
 			ebsSlide,
 			ebsMoveProcess,
+            ebsWinProcess,
             ebsGameOver
 		}m_State;
     };

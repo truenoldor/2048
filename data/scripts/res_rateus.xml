@@ -6,6 +6,8 @@
 		<set path="images/gui/rateus" />
 		<image file="back.png" />					
 		<image file="def_btn.png" />									
+		<image file="def_btn2.png" />									
+		<image file="close_btn.png" />					
 	</atlas>
 	
 	

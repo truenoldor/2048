@@ -6,7 +6,7 @@
 namespace oxygine
 {
     const Point MATRIX_SIZE(4, 4);
-	const Vector2 DELTA(24.f, 24.f);
+	const Vector2 DELTA(48.f, 48.f);
 
     Tile2048::Tile2048(const oxygine::Resources & res):
         m_MatrixPos( 0, 0 ),
@@ -49,13 +49,13 @@ namespace oxygine
 	void Tile2048::doUpdate(const UpdateState& us)
 	{
 		Sprite::doUpdate(us);
-		if ( m_Score )
-		{
-			char out[256] = "";
-			sprintf(out, "%d", m_Denomination);
-			m_Score->setText(out);
-			updateColor();
-		}
+// 		if ( m_Score )
+// 		{
+// 			char out[256] = "";
+// 			sprintf(out, "%d", m_Denomination);
+// 			m_Score->setText(out);
+// 			updateColor();
+// 		}
 	}
 
 
@@ -77,7 +77,9 @@ namespace oxygine
     void Board2048::Create( const oxygine::Resources & res )
     {
 		m_Resources = &res;
-        setResAnim(res.getResAnim("border"));
+        //setResAnim(res.getResAnim("border"));
+
+        setSize(GAME_SIZE.x, GAME_SIZE.x);
 
 		addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
 			m_TouchPoint = ((TouchEvent *)e)->localPosition;
@@ -121,7 +123,8 @@ namespace oxygine
 
 	void Board2048::objectSlide(Event * e)
 	{
-		if (m_State == ebsMoveProcess)
+		if (m_State == ebsMoveProcess||
+            m_State == ebsWinProcess)
 			return;
 
 		TouchEvent * te = (TouchEvent *)e;
@@ -508,6 +511,18 @@ namespace oxygine
 		return false;
 	}
 
+    const ResAnim * Board2048::getResWithScore(int den)
+    {
+        if ( m_Resources )
+        {
+            char out[4096] = "";
+            sprintf(out, "%d", den);
+            return m_Resources->getResAnim(out);
+        }
+
+        return 0;
+    }
+
 	void Board2048::doUpdate(const UpdateState& us)
 	{
 		Sprite::doUpdate(us);
@@ -518,7 +533,14 @@ namespace oxygine
             Player::instance->Save();
         }
 
-		if ( m_State != ebsGameOver && !checkTweens() )
+
+        for (spTile2048 tile : m_Tiles)
+        {
+            tile->setResAnim(getResWithScore(tile->m_Denomination));
+        }
+
+
+		if ( m_State != ebsGameOver && m_State != ebsWinProcess && !checkTweens() )
 		{
 			checkLeftTurns();
 
@@ -549,6 +571,26 @@ namespace oxygine
 
 	void Board2048::checkLeftTurns()
 	{
+        for (spTile2048 tile : m_Tiles)
+        {
+            if (tile->m_Denomination == 2048) // check win
+            {
+                tile->addTween(Actor::TweenPosition(tile->getPosition() - Vector2( 0.f, 200.f )), 1300, 1, false, 200, Tween::ease_linear);
+                tile->addTween(Actor::TweenScale(1.8f), 1300, 1, false, 200, Tween::ease_linear);
+                tile->addTween(Actor::TweenAlpha(0), 1311, 1, false, 200, Tween::ease_linear)->addDoneCallback([=](Event * e)->void
+                {
+                    if ( m_State != ebsGameOver)
+                    {
+                        m_State = ebsGameOver;
+                        GameScreen::instance->YouScoresDlg(true);
+                    }
+                }
+                );
+                m_State = ebsWinProcess;
+                return;
+            }
+        }
+
 		for (spTile2048 tile : m_Tiles )
 		{
 			if (IsEmptyNearCells(tile))
@@ -559,7 +601,7 @@ namespace oxygine
 		}
 
         m_State = ebsGameOver;
-        GameScreen::instance->YouScoresDlg();
+        GameScreen::instance->YouScoresDlg( false );
 	}
 
     void Board2048::getFreeCells(std::vector< Point > & cells)
@@ -590,7 +632,7 @@ namespace oxygine
 		if (!m_Resources)
 			return 0;
 
-		const ResAnim * pRes = m_Resources->getResAnim("chip");
+		const ResAnim * pRes = m_Resources->getResAnim("2");
 		if (!pRes)
 			return 0;
 
@@ -615,7 +657,8 @@ namespace oxygine
 		if (debugVal)
 			tile->m_Denomination = debugVal;
 
-		tile->m_Score = Helper::makeMeTextField("bip-2", 70, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+		tile->m_Score = Helper::makeMeTextField("a_Alterna-64", 70, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+        tile->m_Score->setVisible(false);
 		Helper::linkTextField(tile, tile->m_Score, Vector2(0.f, -6.f));
 
 		tile->setAnchor(0.5f, 0.5f);
