@@ -27,7 +27,7 @@ Button2::~Button2()
 void Button2::CreateTextButton(const ResAnim * res, const std::string & font, int fontSize, const std::string & text, unsigned long color, const Vector2 & delta)
 {
     setResAnim(res);
-    spTextField textMenu = Helper::makeMeTextField(font, 50, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
+    spTextField textMenu = Helper::makeMeTextField(font, fontSize, TextStyle::HALIGN_MIDDLE, TextStyle::VALIGN_MIDDLE);
     if (textMenu)
     {
         textMenu->setColor(Color(color));

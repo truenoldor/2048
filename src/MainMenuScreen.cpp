@@ -29,14 +29,14 @@ namespace oxygine
     }
 
     void MainMenuScreen::Init()
-    {        
+    {
         m_Resources.loadXML("scripts/res_main.xml", ResourcesLoadOptions().prebuiltFolder("images-high"));
 
         m_Back = new Sprite;
         m_Back->setResAnim(m_Resources.getResAnim("back"));
 
         m_PlayBtn = new Button2;
-        m_PlayBtn->CreateTextButton(m_Resources.getResAnim("play_btn"), "CyrillicCompressed-64", 50, ""/*"localize_play_btn"*/, 0x000000ff);
+        m_PlayBtn->CreateTextButton(m_Resources.getResAnim("play_btn"), "CyrillicCompressed-128", 86, "localize_play_btn", 0xfff78dff, Vector2( 0.f, -20.f ));
         m_PlayBtn->setPosition(Vector2(540.f, 1480.f));
         m_PlayBtn->addEventListener(TouchEvent::TOUCH_DOWN, [=](Event* e) {
             generateAction("play");
