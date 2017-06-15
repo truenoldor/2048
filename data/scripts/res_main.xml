@@ -3,9 +3,10 @@
 	<atlas format="8888"> 
 
 		<set path="images/main" />
-		<image file="back.png" />		
-		<image file="logo.png" />	
-		<image file="def_btn.png" />	
+		<image file="back.png" />				
+		<image file="play_btn.png" />	
+		<image file="settings_btn.png" />	
+		<image file="exit_btn.png" />	
 		
 		
 	</atlas>
