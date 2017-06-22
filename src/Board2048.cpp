@@ -282,12 +282,20 @@ namespace oxygine
 		{
 			if ( pTileTrace )
 			{
-				pTile->m_Denomination *= 2;
+				//pTile->m_Denomination *= 2;
 				pTile->m_DenominationBuffer = 0;
 				m_Scores += pTile->m_Denomination;
 
-                pTile->addTween(Actor::TweenScale(1.4f), 350, 1, false, 0, Tween::ease_inSin);
-                pTile->addTween(Actor::TweenScale(1.f), 200, 1, false, 351, Tween::ease_outSin);
+                pTile->addTween(Actor::TweenScale(0.f, 1.f), 150, 1, false, 0, Tween::ease_inSin)->addDoneCallback([=](Event * e)->void
+                {
+                    pTile->m_Denomination *= 2;
+                }
+                );
+
+                pTile->addTween(Actor::TweenScale(1.f, 1.f), 150, 1, false, 151, Tween::ease_outSin);
+
+                pTile->addTween(Actor::TweenScale(1.2f), 150, 1, false, 180, Tween::ease_inOutSin);
+                pTile->addTween(Actor::TweenScale(1.f), 150, 1, false, 330, Tween::ease_inOutSin);
                 //pTile->setScale(0.f);
                 //pTile->addTween(Actor::TweenScale(1.1f), 250, 1, false, 100, Tween::ease_inSin);
                 //pTile->addTween(Actor::TweenScale(1.f), 100, 1, false, 351, Tween::ease_outSin);
